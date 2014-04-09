@@ -60,14 +60,14 @@
             <?php endif; ?>
             <?php if(AdminUser::isLoggedIn()): ?>
             <li>
-              <a href="/login/logout/">
+              <a href="/admin/login/logout/">
                 Logout
               </a>
             </li>
             <?php endif; ?>
           </ul>
           <?php if(!AdminUser::isLoggedIn()): ?>
-          <form id="sign-in-form" class="navbar-form pull-right" action="/login/" method="post">
+          <form id="sign-in-form" class="navbar-form pull-right" action="/admin/login/" method="post">
             <input name="username" type="text" placeholder="Username" class="span2">
             <input name="password" type="password" placeholder="Password" class="span2">
             <button class="btn" id="sign-in">

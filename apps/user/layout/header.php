@@ -33,6 +33,11 @@
     $("#sign-in").click(function() {
       $('#sign-in-form').submit();
     });
+    //forgot password
+    function swapForm() {
+      document.getElementById("login").style.display="none";
+      alert('I am foo!');
+    }
     </script>
 
     <?php echo $this->getModuleHeader(); ?>
@@ -47,7 +52,7 @@
           </a>
           <ul class="nav">
             <li>
-              <a href="/user">
+              <a href="/">
                 Home
               </a>
             </li>
@@ -59,7 +64,7 @@
             </li>
             <?php else: ?>
             <li >
-              <a href="/user/login" >
+              <a href="/login" >
                 Login
               </a>
             </li>
