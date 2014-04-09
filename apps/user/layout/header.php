@@ -35,8 +35,9 @@
     });
     //forgot password
     function swapForm() {
-      document.getElementById("login").style.display="none";
-      alert('I am foo!');
+      $("#form_sub_container1").hide();
+      $("#form_sub_container2").show();
+
     }
     </script>
 
