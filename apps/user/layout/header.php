@@ -33,6 +33,9 @@
     $("#sign-in").click(function() {
       $('#sign-in-form').submit();
     });
+    $("#forgot-pwd").click(function() {
+      $('#forgot-password-form').submit();
+    });
     //forgot password
     function swapForm() {
       $("#form_sub_container1").hide();

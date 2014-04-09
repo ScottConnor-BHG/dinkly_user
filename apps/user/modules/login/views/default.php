@@ -21,12 +21,12 @@
                     </form>
             </div>
             <div id="form_sub_container2" style="display: none;">
-                    <form id="sign-in-form" class="form" action="/login/" method="post" id="login">
+                    <form id="forgot-password-form" class="form" action="/login/" method="post">
                       <div class="form-group" >
                        <input name="username" type="text" placeholder="Username" class="input-block-level">
                       </div>
                       <div class="form-group">
-                        <button class="btn" id="sign-in">
+                        <button class="btn" id="forgot-pwd">
                           Get New Password
                         </button>
                       </div>
