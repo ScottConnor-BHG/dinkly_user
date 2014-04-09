@@ -42,12 +42,12 @@
     <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">
+          <a class="brand" href="/user">
             <?php echo Dinkly::getConfigValue('app_name'); ?>
           </a>
           <ul class="nav">
             <li>
-              <a href="/">
+              <a href="/user">
                 Home
               </a>
             </li>
@@ -57,12 +57,13 @@
                 Logout
               </a>
             </li>
-            <?php endif; ?>
-                        <li>
-              <a href="/login">
+            <?php else: ?>
+            <li >
+              <a href="/user/login" >
                 Login
               </a>
             </li>
+            <?php endif; ?>
           </ul>
         </div>
       </div>

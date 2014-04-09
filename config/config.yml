@@ -4,8 +4,9 @@ global:
 
     apps:
         admin:
+            default_app: true
             default_module: home
-            base_href: /admin
+            base_href: /
             app_name: Dinkly Admin
             app_description: Just a humble little PHP MVC Framework
             copyright: Dinkly
@@ -14,9 +15,8 @@ global:
             base_href: /api
             default_module: api
         user:
-            default_app: true
             app_name: Dinkly User
-            base_href: /
+            base_href: /user
             default_module: home
 
     databases:
