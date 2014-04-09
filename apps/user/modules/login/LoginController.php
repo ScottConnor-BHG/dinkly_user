@@ -17,6 +17,7 @@ class LoginController extends UserController
 				{ 
 					unset($_SESSION['dinkly']['badlogin']);
 				}
+				$this->loadModule('user', 'home', 'default', true);
 				//error_log("valid_login");
 
 			}
