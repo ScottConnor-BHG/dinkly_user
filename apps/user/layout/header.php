@@ -53,32 +53,18 @@
             </li>
             <?php if(AdminUser::isLoggedIn()): ?>
             <li>
-              <a href="/user/user_list/">
-                User List
-              </a>
-            </li>
-            <?php endif; ?>
-            <?php if(AdminUser::isLoggedIn()): ?>
-            <li>
               <a href="/login/logout/">
                 Logout
               </a>
             </li>
             <?php endif; ?>
+                        <li>
+              <a href="/login">
+                Login
+              </a>
+            </li>
           </ul>
-          <?php if(!AdminUser::isLoggedIn()): ?>
-          <form id="sign-in-form" class="navbar-form pull-right" action="/login/" method="post">
-            <input name="username" type="text" placeholder="Username" class="span2">
-            <input name="password" type="password" placeholder="Password" class="span2">
-            <button class="btn" id="sign-in">
-              Sign in
-            </button>
-          </form>
-          <?php endif; ?>
         </div>
       </div>
     </div>
     <div class="container">
-      <?php if(isset($_SESSION['dinkly']['badlogin'])): ?>
-      <div class="alert alert-error">Invalid login</div>
-      <?php endif; ?>

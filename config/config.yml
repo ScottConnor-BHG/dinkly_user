@@ -4,7 +4,6 @@ global:
 
     apps:
         admin:
-            default_app: true
             default_module: home
             base_href: /admin
             app_name: Dinkly Admin
@@ -15,6 +14,7 @@ global:
             base_href: /api
             default_module: api
         user:
+            default_app: true
             app_name: Dinkly User
             base_href: /
             default_module: home
