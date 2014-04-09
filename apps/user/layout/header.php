@@ -78,3 +78,7 @@
       </div>
     </div>
     <div class="container">
+      <?php if(isset($_SESSION['dinkly']['badlogin'])): ?>
+      <div class="alert alert-error">Invalid login</div>
+      <?php endif; ?>
+    
