@@ -23,7 +23,7 @@
             <div id="form_sub_container2" style="display: none;">
                     <form id="forgot-password-form" class="form" action="/login/" method="post">
                       <div class="form-group" >
-                       <input name="username" type="text" placeholder="Username" class="input-block-level">
+                       <input name="forgot" type="text" placeholder="Username" class="input-block-level">
                       </div>
                       <div class="form-group">
                         <button class="btn" id="forgot-pwd">

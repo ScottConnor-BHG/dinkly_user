@@ -4,6 +4,10 @@ class LoginController extends UserController
 {
 	public function loadDefault()
 	{
+		if(isset($_POST['forgot']))
+		{
+			error_log("email_sent");
+		}
 		if(isset($_POST['username']) && isset($_POST['password']))
 		{
 			if(!User::authenticate($_POST['username'], $_POST['password']))
@@ -21,10 +25,9 @@ class LoginController extends UserController
 				//error_log("valid_login");
 
 			}
-
-
 			
 		}
+
 
 		return true;
 	}

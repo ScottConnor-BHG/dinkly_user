@@ -10,7 +10,9 @@
     <!-- Le styles -->
     <link href="/css/bootstrap.css" rel="stylesheet">
     <style>
-      body { padding-top: 60px; /* 60px to make the container go all the way
+      body { 
+      min-height: 1000px;
+      padding-top: 60px; /* 60px to make the container go all the way
       to the bottom of the topbar */ }
     </style>
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
@@ -36,7 +38,7 @@
     $("#forgot-pwd").click(function() {
       $('#forgot-password-form').submit();
     });
-    //forgot password
+    //forgot password swap for login form
     function swapForm() {
       $("#form_sub_container1").hide();
       $("#form_sub_container2").show();
@@ -81,4 +83,3 @@
       <?php if(isset($_SESSION['dinkly']['badlogin'])): ?>
       <div class="alert alert-error">Invalid login</div>
       <?php endif; ?>
-    
