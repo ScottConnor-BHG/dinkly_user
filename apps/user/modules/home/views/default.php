@@ -13,11 +13,9 @@
       (v<?php echo Dinkly::getConfigValue('dinkly_version', 'global'); ?>)
     </p>
   </div>
+  <span style="height:500px;">
+  </span>
 </div>
 
 
 
-<ul class="pager">
-  <li><a href="#">Previous</a></li>
-  <li><a href="#">Next</a></li>
-</ul>

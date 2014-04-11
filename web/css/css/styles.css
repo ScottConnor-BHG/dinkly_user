@@ -1,0 +1,115 @@
+body{
+	padding:0;
+	margin:0;
+	
+
+}
+header{
+	margin-left: 0;
+	
+}
+#header{
+	height:130px;
+	width:100%;
+	margin-bottom:0;
+	margin-right:0;
+
+
+}
+#navArrow{
+position:absolute;
+top:129px;
+left:15px;
+z-index: 3;
+}
+.container-fluid{
+	margin:0;
+	padding:0;
+	
+}
+nav{
+	height:600px;
+	width:100%;
+	background-color: rgb(166, 181, 40);
+}
+nav li{
+	margin-bottom:0;
+}
+.navbar-brand{
+	height:129px;
+	padding-top: 0;
+	margin:0;
+}
+.navbar-brand img{
+	width:300px;
+}
+.navbar-brand:hover{
+	background-color: rgb(166, 181, 40);
+}
+/*top navigation bar*/
+#logo{
+	padding:0;
+	margin-top:0;
+
+}
+.brand{
+	margin-left: 0;
+
+}
+
+
+/*#navWell{
+	margin:0;
+}*/
+
+/*#navBarLogo{
+	margin-bottom:20px;
+	height:180px;
+}*/
+/*#navBar a:hover {
+		background-color:green;
+
+}*/
+
+.leftSideBar{
+	margin-right:0;
+	width:100%;
+}
+#sideNav{
+	padding:0;
+	height:800px;
+}
+.leftSideBar ul li{
+	background-color:rgb(150, 140, 21);
+	padding:20px;
+	text-align: center;
+}
+#sidebarWell{
+
+	background-color:rgb(150, 140, 21);
+	width:200px;
+	height:800px;
+	margin-right:0;
+}
+#rightWell{
+	background-color:rgb(150, 140, 21);
+	width:100%;
+	
+	height:800px;
+	/*position:relative;
+	left:-30px;*/
+}
+/*end header begin content*/
+#content{
+	margin:0;
+	min-width: 1090px;
+	padding:0;
+}
+.well .left-content{
+	min-width:680px;
+}
+#rightNav li{
+	padding-left: 50px;
+	
+}
+

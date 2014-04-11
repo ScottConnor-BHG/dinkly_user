@@ -1,4 +1,4 @@
-<div class="hero-unit" style="max-width:300px;margin-left:auto;margin-right:auto;">
+<div class="hero-unit" style="min-width:225px;max-width:300px;margin-left:auto;margin-right:auto;">
   <div>
         <div class="row">
           <div class="col-md-4">

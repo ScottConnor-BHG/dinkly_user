@@ -26,7 +26,16 @@ class User extends BaseUser
 		if(isset($_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_username'])) { return $_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_username']; }
 		return false;
 	}
+	public function initWithUsername($username)
+	{
+		$Select = $this->getSelectQuery() . " where username =" . $this->db->quote($username);
+		$result = $this->db->query($Select)->fetchAll();
 
+		if($result != array())
+		{
+			$this->hydrate($result, true);
+		}
+	}
 	public static function logout()
 	{	
 		$_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_in'] = null;

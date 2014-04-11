@@ -1,10 +1,10 @@
 
       <div>
       	
-      <div class = "footer" style ="position:fixed ; bottom: 10px;";>
+      <footer>
       	<hr>
     	© <?php echo Dinkly::getConfigValue('copyright'); ?> <?php echo date('Y'); ?>
-      </div>
+      </footer>
       </div>
   </div>
   </body>

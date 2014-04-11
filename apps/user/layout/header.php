@@ -11,11 +11,11 @@
     <link href="/css/bootstrap.css" rel="stylesheet">
     <style>
       body { 
-      min-height: 1000px;
       padding-top: 60px; /* 60px to make the container go all the way
       to the bottom of the topbar */ }
     </style>
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
@@ -42,7 +42,16 @@
     function swapForm() {
       $("#form_sub_container1").hide();
       $("#form_sub_container2").show();
-
+    }
+    //handle account setting edit button click
+    function handleEdit(){
+      //alert("test");
+      $("#username").removeAttr('disabled');
+      $("#firstname").removeAttr('disabled');
+      $("#lastname").removeAttr('disabled');
+      $("#title").removeAttr('disabled');
+      //username.disabled=false;
+      
     }
     </script>
 
@@ -50,23 +59,47 @@
 
   </head>
   <body>
-    <div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/user">
+          <a class="brand" href="/">
             <?php echo Dinkly::getConfigValue('app_name'); ?>
           </a>
           <ul class="nav">
+
+
+          </ul>
+          <ul class="nav pull-right">
             <li>
               <a href="/">
                 Home
               </a>
             </li>
-            <?php if(AdminUser::isLoggedIn()): ?>
+            <?php if(User::isLoggedIn()): ?>
             <li>
-              <a href="/login/logout/">
-                Logout
-              </a>
+              <ul class="nav nav-pills">
+                <li class="dropdown">
+                  <a class="dropdown-toggle"
+                     data-toggle="dropdown"
+                     href="#">
+                      <?php echo User::getLoggedUsername();?>
+                      <b class="caret"></b>
+                    </a>
+                  <ul class="dropdown-menu" >
+                    <!-- links -->
+                    <li>
+                      <a href="/account/">
+                        Settings
+                       </a>
+                    </li>
+                    <li>
+                     <a href="/login/logout/">
+                      Logout
+                     </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </li>
             <?php else: ?>
             <li >
@@ -75,11 +108,15 @@
               </a>
             </li>
             <?php endif; ?>
+
           </ul>
         </div>
       </div>
-    </div>
+    </div> 
+
+
     <div class="container">
       <?php if(isset($_SESSION['dinkly']['badlogin'])): ?>
       <div class="alert alert-error">Invalid login</div>
       <?php endif; ?>
+
