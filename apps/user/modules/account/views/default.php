@@ -20,7 +20,10 @@
                       </div>
                       <div class="form-group">
                         <button class="btn pull-right" id="edit">
-                          edit
+                          Edit
+                        </button>
+                        <button class="btn pull-right" id="save" style="display:none;">
+                          Save
                         </button>
                       </div>
                     </form>

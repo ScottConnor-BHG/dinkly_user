@@ -46,6 +46,8 @@
     //handle account setting edit button click
     function handleEdit(){
       //alert("test");
+      $("#edit").hide();
+      $("#save").show();
       $("#username").removeAttr('disabled');
       $("#firstname").removeAttr('disabled');
       $("#lastname").removeAttr('disabled');
