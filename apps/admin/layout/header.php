@@ -53,7 +53,7 @@
             </li>
             <?php if(AdminUser::isLoggedIn()): ?>
             <li>
-              <a href="/user/user_list/">
+              <a href="/admin/user/user_list/">
                 User List
               </a>
             </li>

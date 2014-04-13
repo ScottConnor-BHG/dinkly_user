@@ -13,7 +13,7 @@
                        <input name="firstname" id="firstname" type="text" placeholder="First Name" value="<?php echo $user->getFirstName();?>" class="input-block-level"disabled>
                       </div>
                       <div class="form-group" >
-                       <input name="lastname" id="lastname" type="text" placeholder="First Name" value="<?php echo $user->getLastName();?>" class="input-block-level"disabled>
+                       <input name="lastname" id="lastname" type="text" placeholder="Last Name" value="<?php echo $user->getLastName();?>" class="input-block-level"disabled>
                       </div>
                       <div class="form-group" >
                        <input name="title" id ="title" type="text" placeholder="Occupation" value="<?php echo $user->getTitle();?>" class="input-block-level"disabled>
@@ -22,7 +22,7 @@
                         <button class="btn pull-right" id="edit">
                           Edit
                         </button>
-                        <button class="btn pull-right" id="save" style="display:none;">
+                        <button class="save_user_info btn pull-right" class ="save_user_info" id="save_user_info" style="display:none;">
                           Save
                         </button>
                       </div>

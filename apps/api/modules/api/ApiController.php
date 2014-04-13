@@ -48,4 +48,30 @@ class ApiController extends Dinkly
 
 		return false;
 	}
+/*
+################### User Ajax endpoints ###########################
+****/
+	public function loadSaveUserInfo()
+	{
+		$user = new User();
+		$username =$_POST['username'];
+		$firstname =$_POST['firstname'];
+		$lastname =$_POST['lastname'];
+		$title =$_POST['title'];
+		//error_log($username);
+		$user->initWithUsername($username);
+		$id =$user->getId();
+		$user= new User();
+		$user->init($id);
+		//error_log($id);
+
+		$user->setUsername($username);
+		$user->setFirstName($firstname);
+		$user->setLastName($lastname);
+		$user->setTitle($title);
+		$user->save();
+
+		return false;
+	}
 }
+
