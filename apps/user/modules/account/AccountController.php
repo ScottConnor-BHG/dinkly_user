@@ -8,7 +8,6 @@ class AccountController extends UserController
 		$user= new User();
 		$user->initWithUsername($this->username);
 		$this->user=$user;
-
 		return true;
 	}
 }

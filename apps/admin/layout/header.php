@@ -33,6 +33,50 @@
     $("#sign-in").click(function() {
       $('#sign-in-form').submit();
     });
+    //handle account setting edit button click
+    function handleEdit(){
+      //alert("test");
+      $("#edit").hide();
+      $("#save_user_info").show();
+      $("#username").removeAttr('disabled');
+      $("#firstname").removeAttr('disabled');
+      $("#lastname").removeAttr('disabled');
+      $("#title").removeAttr('disabled');
+      //username.disabled=false;
+      
+    }
+    $(document).ready(function() {
+    //save user information
+    $('body').on('click','.save_user_info',function(){
+      var username= document.getElementById('username').value;
+      var firstname= document.getElementById('firstname').value;
+      var lastname= document.getElementById('lastname').value;
+      var title= document.getElementById('title').value;
+     //console.log(username + firstname +lastname+title);
+     //ajax code goes here to make database changes
+        $.ajax({
+              type: "POST",
+              url: "/api/api/save_user_info/",
+              data: {username: username,firstname:firstname,lastname:lastname,title:title},
+        success: function(msg) {        
+              $("#save_user_info").hide();
+              $("#edit").show();
+              $("#username").prop('disabled', true);
+              $("#firstname").prop('disabled', true);
+              $("#lastname").prop('disabled', true);
+              $("#title").prop('disabled', true);
+              //var message = "Tag deleted successfully";
+              //console.log("success")
+              //showMessage(message, 'success');
+            },
+            error: function(error){
+              var message = "There was an error processing your request. Please try again later.";
+              //showMessage(message, "error");
+            }
+        });
+      
+    });
+    });
     </script>
 
     <?php echo $this->getModuleHeader(); ?>

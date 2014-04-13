@@ -19,7 +19,8 @@ class UserController extends AdminController
 
 	public function loadUserList()
 	{
-		$this->users = AdminUserCollection::getAll();
+		$this->admin_users = AdminUserCollection::getAll();
+		$this->users = UserCollection::getAll();
 		return true;
 	}
 }
