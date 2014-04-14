@@ -41,7 +41,7 @@
       <td><?php echo $user->getCreatedAt(); ?></td>
       <td><?php echo $user->getLastLoginAt(); ?></td>
       <td><?php echo $user->getLoginCount(); ?></td>
-      <td><?php echo '<a href="/admin/account/edit/id/'.$user->getId().'">Edit</a>'; ?></td>
+      <td><?php echo '<a target="_blank" href="/admin/account/edit/id/'.$user->getId().'">Edit</a>'; ?></td>
     </tr> 
     <?php endforeach; ?>
   </tbody>

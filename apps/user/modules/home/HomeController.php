@@ -6,5 +6,10 @@ class HomeController extends UserController
 	{
 		return true;
 	}
+	public function loadSignUp()
+	{
+
+		return true;
+	}
 
 }

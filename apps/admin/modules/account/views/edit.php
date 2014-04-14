@@ -7,7 +7,7 @@
             <div id="form_sub_container1" style="display: block;">
                     <form  class="form" action="javascript:handleEdit()" >
                       <div class="form-group" >
-                       <input name="username" id="username" type="text" placeholder="Username" value="<?= $username?>" class="input-block-level" disabled>
+                       <input name="username" id="username" type="text" placeholder="Username" value="<?= $user->getUsername();?>" class="input-block-level" disabled>
                       </div>
                       <div class="form-group" >
                        <input name="firstname" id="firstname" type="text" placeholder="First Name" value="<?php echo $user->getFirstName();?>" class="input-block-level"disabled>

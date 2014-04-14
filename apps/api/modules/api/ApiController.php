@@ -58,13 +58,31 @@ class ApiController extends Dinkly
 		$firstname =$_POST['firstname'];
 		$lastname =$_POST['lastname'];
 		$title =$_POST['title'];
-		//error_log($username);
+	  //error_log($title);
 		$user->initWithUsername($username);
 		$id =$user->getId();
 		$user= new User();
 		$user->init($id);
 		//error_log($id);
 
+		$user->setUsername($username);
+		$user->setFirstName($firstname);
+		$user->setLastName($lastname);
+		$user->setTitle($title);
+		$user->save();
+
+		return false;
+	}
+		public function loadSignUpUser()
+	{
+		$user = new User();
+		$username =$_POST['username'];
+		$firstname =$_POST['firstname'];
+		$lastname =$_POST['lastname'];
+		$title =$_POST['title'];
+		$password=$_POST['password'];
+	  //error_log($password);
+		$user->setPassword($password);
 		$user->setUsername($username);
 		$user->setFirstName($firstname);
 		$user->setLastName($lastname);

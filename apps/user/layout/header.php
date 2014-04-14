@@ -35,6 +35,10 @@
     $("#sign-in").click(function() {
       $('#sign-in-form').submit();
     });
+    // $("#sign-up").click(function() {
+    //   console.log("here");
+    //   $('#sign-up-form').submit();
+    // });
     $("#forgot-pwd").click(function() {
       $('#forgot-password-form').submit();
     });
@@ -77,6 +81,31 @@ $('body').on('click','.save_user_info',function(){
           $("#title").prop('disabled', true);
           //var message = "Tag deleted successfully";
           console.log("success")
+          //showMessage(message, 'success');
+        },
+        error: function(error){
+          var message = "There was an error processing your request. Please try again later.";
+          //showMessage(message, "error");
+        }
+    });
+  
+});
+//sign up user
+//save user information
+$('body').on('click','.sign-up',function(){
+  var username= document.getElementById('username').value;
+  var password = document.getElementById('password').value;
+  var firstname= document.getElementById('firstname').value;
+  var lastname= document.getElementById('lastname').value;
+  var title= document.getElementById('title').value;
+ //console.log(username + firstname +lastname+title);
+ //ajax code goes here to make database changes
+    $.ajax({
+          type: "POST",
+          url: "/api/api/sign_up_user/",
+          data: {username: username,password: password,firstname:firstname,lastname:lastname,title:title},
+    success: function(msg) {        
+          console.log("success");
           //showMessage(message, 'success');
         },
         error: function(error){
@@ -139,6 +168,11 @@ $('body').on('click','.save_user_info',function(){
             <li >
               <a href="/login" >
                 Login
+              </a>
+            </li>
+            <li >
+              <a href="/home/sign_up" >
+                Sign Up
               </a>
             </li>
             <?php endif; ?>
