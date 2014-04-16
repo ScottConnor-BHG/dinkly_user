@@ -17,4 +17,12 @@ class AccountController extends AdminController
 
 		return true;
 	}
+	public function loadAddUser()
+	{
+		
+		
+
+
+		return true;
+	}
 }

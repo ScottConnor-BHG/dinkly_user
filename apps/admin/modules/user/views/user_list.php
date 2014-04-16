@@ -21,6 +21,11 @@
     <?php endforeach; ?>
   </tbody>
 </table>
+      <button onclick="addUser()" class="sign-up btn pull-right" id="sign-up">
+        
+          Add User
+        
+      </button>
 <h3>User List</h3>
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="user-list">
   <thead>

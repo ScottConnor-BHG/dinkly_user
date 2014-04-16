@@ -45,6 +45,11 @@
       //username.disabled=false;
       
     }
+    //add user url redirect
+    function addUser(){
+
+      window.location.href ="../account/add_user";
+    }
     $(document).ready(function() {
     //save user information
     $('body').on('click','.save_user_info',function(){
@@ -76,6 +81,30 @@
         });
       
     });
+//save user information
+$('body').on('click','.sign-up',function(){
+  var username= document.getElementById('username').value;
+  var password = document.getElementById('password').value;
+  var firstname= document.getElementById('firstname').value;
+  var lastname= document.getElementById('lastname').value;
+  var title= document.getElementById('title').value;
+ //console.log(username + firstname +lastname+title);
+ //ajax code goes here to make database changes
+    $.ajax({
+          type: "POST",
+          url: "/api/api/sign_up_user/",
+          data: {username: username,password: password,firstname:firstname,lastname:lastname,title:title},
+    success: function(msg) {        
+          console.log("success");
+          //showMessage(message, 'success');
+        },
+        error: function(error){
+          var message = "There was an error processing your request. Please try again later.";
+          //showMessage(message, "error");
+        }
+    });
+  
+});
     });
     </script>
 
