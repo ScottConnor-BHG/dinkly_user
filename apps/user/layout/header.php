@@ -122,17 +122,23 @@ $('body').on('click','.sign-up',function(){
 
   </head>
   <body>
-  <div class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="/">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
             <?php echo Dinkly::getConfigValue('app_name'); ?>
           </a>
-          <ul class="nav">
-
-
-          </ul>
-          <ul class="nav pull-right">
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            </ul>
+          <div class="nav navbar-nav navbar-right" >
             <li>
               <a href="/">
                 Home
@@ -176,12 +182,70 @@ $('body').on('click','.sign-up',function(){
               </a>
             </li>
             <?php endif; ?>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+  </div>
+<!--   <div class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">
+            <?php echo Dinkly::getConfigValue('app_name'); ?>
+          </a>
+          <ul class="nav">
+
+
+          </ul>
+          <ul class="nav pull-right">
+            <li>
+              <a href="/">
+                Home
+              </a>
+            </li>
+            <?php if(User::isLoggedIn()): ?>
+            <li>
+              <ul class="nav nav-pills">
+                <li class="dropdown">
+                  <a class="dropdown-toggle"
+                     data-toggle="dropdown"
+                     href="#">
+                      <?php echo User::getLoggedUsername();?>
+                      <b class="caret"></b>
+                    </a>
+                  <ul class="dropdown-menu" >
+                    <!-- links -->
+<!--                     <li>
+                      <a href="/account/">
+                        Settings
+                       </a>
+                    </li>
+                    <li>
+                     <a href="/login/logout/">
+                      Logout
+                     </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <?php else: ?>
+            <li >
+              <a href="/login" >
+                Login
+              </a>
+            </li>
+            <li >
+              <a href="/home/sign_up" >
+                Sign Up
+              </a>
+            </li>
+            <?php endif; ?>
 
           </ul>
         </div>
       </div>
-    </div> 
-
+    </div>  --> 
 
     <div class="container">
       <?php if(isset($_SESSION['dinkly']['badlogin'])): ?>

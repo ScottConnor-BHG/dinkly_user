@@ -1,4 +1,4 @@
-table_name: admin_user
+table_name: user
 registry:
   - id
   - created_at
