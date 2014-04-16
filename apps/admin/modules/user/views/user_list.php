@@ -22,6 +22,8 @@
     <?php endforeach; ?>
   </tbody>
 </table>
+
+
       <button onclick="addUser()" class="sign-up btn pull-right" id="sign-up">
         
           Add User

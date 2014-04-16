@@ -14,6 +14,7 @@
       to the bottom of the topbar */ }
     </style>
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
@@ -48,7 +49,7 @@
     //add user url redirect
     function addUser(){
 
-      window.location.href ="../account/add_user";
+      window.location.href ="../../../account/add_user";
     }
     $(document).ready(function() {
     //save user information
@@ -128,7 +129,7 @@ $('body').on('click','.sign-up',function(){
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
               <li>
-                  <a href="/">
+                  <a href="/admin">
                     Home
                   </a>
               </li>
@@ -143,8 +144,8 @@ $('body').on('click','.sign-up',function(){
           <div class="nav navbar-nav navbar-right" >
             <?php if(AdminUser::isLoggedIn()): ?>
             <li>
-              <a href="/admin/login/logout/">
-                Logout
+              <a href="/admin/login/logout/" >
+                Logout 
               </a>
             </li>
             <?php endif; ?>

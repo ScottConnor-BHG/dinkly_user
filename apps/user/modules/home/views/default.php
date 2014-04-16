@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <div>
+
   	<?php if(User::isLoggedIn()): ?>
   	<h4>
 	  <h4>Logged in as <?php echo AdminUser::getLoggedUsername(); ?></h4>
@@ -12,9 +12,10 @@
       <?php echo Dinkly::getConfigValue('app_description'); ?>
       (v<?php echo Dinkly::getConfigValue('dinkly_version', 'global'); ?>)
     </p>
+
+
+  <div style="height:500px;">
   </div>
-  <span style="height:500px;">
-  </span>
 </div>
 
 

@@ -14,7 +14,7 @@
       padding-top: 60px; /* 60px to make the container go all the way
       to the bottom of the topbar */ }
     </style>
-    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+<!--     <link href="/css/bootstrap-responsive.css" rel="stylesheet"> -->
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -146,7 +146,7 @@ $('body').on('click','.sign-up',function(){
             </li>
             <?php if(User::isLoggedIn()): ?>
             <li>
-              <ul class="nav nav-pills">
+             <!--  <ul class="nav nav-pills"> -->
                 <li class="dropdown">
                   <a class="dropdown-toggle"
                      data-toggle="dropdown"
@@ -168,7 +168,7 @@ $('body').on('click','.sign-up',function(){
                     </li>
                   </ul>
                 </li>
-              </ul>
+              <!-- </ul> -->
             </li>
             <?php else: ?>
             <li >
@@ -182,7 +182,7 @@ $('body').on('click','.sign-up',function(){
               </a>
             </li>
             <?php endif; ?>
-          </ul>
+      <!--     </ul> -->
         </div><!--/.navbar-collapse -->
       </div>
     </div>
