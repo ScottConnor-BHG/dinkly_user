@@ -25,9 +25,9 @@
                         <input name ="username" type="username" class="form-control" placeholder="Username" required autofocus>
                         <input name="password" type="password" class="form-control" placeholder="Password" required>
                         <label class="checkbox">
-                          <input type="checkbox" value="remember-me"> Remember me
-                        <a href="javascript:void(0)" onclick="swapForm()" class="forgot-password pull-right" id="forgot-password"> Password?</a>
-                        </label>
+             <!--         <input type="checkbox" value="remember-me"> Remember me -->
+                          <a href="javascript:void(0)" onclick="swapForm()" class="forgot-password pull-right" id="forgot-password"> Password?</a>
+                        </label> 
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                       </form>
                     </div> <!-- /container -->

@@ -171,16 +171,29 @@ $('body').on('click','.sign-up',function(){
               <!-- </ul> -->
             </li>
             <?php else: ?>
-            <li >
-              <a href="/login" >
-                Login
-              </a>
-            </li>
-            <li >
-              <a href="/home/sign_up" >
-                Sign Up
-              </a>
-            </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle"
+                     data-toggle="dropdown"
+                     href="#">
+                      My Account
+                      <b class="caret"></b>
+                    </a>
+                  <ul class="dropdown-menu" >
+                    <!-- links -->
+                      <li >
+                        <a href="/login" >
+                          Login
+                        </a>
+                      </li>
+                      <li >
+                        <a href="/home/sign_up" >
+                          Sign Up
+                        </a>
+                      </li>
+                  </ul>
+                </li>
+
+
             <?php endif; ?>
       <!--     </ul> -->
         </div><!--/.navbar-collapse -->
