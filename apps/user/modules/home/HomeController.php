@@ -11,5 +11,10 @@ class HomeController extends UserController
 
 		return true;
 	}
+	public function loadUserValidate()
+	{
+
+		return true;
+	}
 
 }

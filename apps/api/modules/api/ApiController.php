@@ -99,10 +99,10 @@ class ApiController extends Dinkly
 			// ->attachment('File.pdf', $file_as_string, 'application/pdf')
 			->send();
 		
-		if($result === true)
-			error_log("message sent");
-		else
-			error_log("message not sent");
+		// if($result === true)
+		// 	error_log("message sent");
+		// else
+		// 	error_log("message not sent");
 		return true;
 	}
 }
