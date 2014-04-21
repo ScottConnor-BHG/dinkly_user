@@ -6,7 +6,7 @@ $(document).ready(function() {
 	/* Admin User Table initialisation */
 	$('#admin-user-list').dataTable({
     "sDom": "<'row'<'col-6'><'col-6'l><'pull-right' f>r>t<'row'<'col-6'i><'col-6'<'pull-right' p>>>",
-    "sPaginationType": "full_numbers",
+    "sPaginationType": "bootstrap",
     "oLanguage": {
         "sLengthMenu": "Show _MENU_ Rows",
                 "sSearch": ""
@@ -15,7 +15,7 @@ $(document).ready(function() {
 	/* User Table initialisation */
 	$('#user-list').dataTable({
     "sDom": "<'row'<'col-6'><'col-6'l><'pull-right' f>r>t<'row'<'col-6'i><'col-6'<'pull-right' p>>>",
-    "sPaginationType": "full_numbers",
+    "sPaginationType": "bootstrap",
     "oLanguage": {
         "sLengthMenu": "Show _MENU_ Rows",
                 "sSearch": ""

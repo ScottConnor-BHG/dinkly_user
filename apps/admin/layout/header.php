@@ -29,7 +29,6 @@
     
     <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.js"></script>
-
     <script type="text/javascript">
     $("#sign-in").click(function() {
       $('#sign-in-form').submit();
@@ -49,8 +48,9 @@
     //add user url redirect
     function addUser(){
 
-      window.location.href ="../../../account/add_user";
+      window.location.href ="../../account/add_user";
     }
+    // ************Document Ready***********
     $(document).ready(function() {
     //save user information
     $('body').on('click','.save_user_info',function(){
@@ -130,7 +130,7 @@ $('body').on('click','.sign-up',function(){
           <ul class="nav navbar-nav">
               <li>
                   <a href="/admin">
-                    Home
+                    Admin Home
                   </a>
               </li>
             <?php if(AdminUser::isLoggedIn()): ?>

@@ -25,4 +25,5 @@ class AccountController extends AdminController
 
 		return true;
 	}
+
 }
