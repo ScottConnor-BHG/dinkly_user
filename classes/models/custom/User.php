@@ -36,6 +36,16 @@ class User extends BaseUser
 			$this->hydrate($result, true);
 		}
 	}
+	public function initWithHash($hash)
+	{
+		$Select = $this->getSelectQuery() . " where hash =" . $this->db->quote($hash);
+		$result = $this->db->query($Select)->fetchAll();
+
+		if($result != array())
+		{
+			$this->hydrate($result, true);
+		}
+	}
 	public static function logout()
 	{	
 		$_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_in'] = null;

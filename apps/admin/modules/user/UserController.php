@@ -13,7 +13,7 @@ class UserController extends AdminController
 
 	public function loadDefault()
 	{
-		$this->loadModule('admin', 'user', 'user_list', true);
+		// $this->loadModule('admin', 'user', 'user_list', true);
 		return false;
 	}
 
@@ -21,6 +21,11 @@ class UserController extends AdminController
 	{
 		$this->admin_users = AdminUserCollection::getAll();
 		$this->users = UserCollection::getAll();
+		return true;
+	}
+		public function loadUploadFile()
+	{
+	
 		return true;
 	}
 }

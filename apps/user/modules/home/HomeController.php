@@ -11,8 +11,14 @@ class HomeController extends UserController
 
 		return true;
 	}
-	public function loadUserValidate()
+	public function loadUserValidate($parameters)
 	{
+		$this->id=$parameters['id'];
+		error_log($this->id);
+		$this->user = new User();
+		$this->user->initWithHash($this->id);
+		$this->user->setIsLocked(0);
+    $this->user->save();
 
 		return true;
 	}

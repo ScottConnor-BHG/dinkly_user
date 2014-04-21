@@ -6,4 +6,5 @@ class HomeController extends AdminController
 	{
 		return true;
 	}
+
 }

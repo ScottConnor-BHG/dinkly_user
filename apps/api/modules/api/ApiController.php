@@ -87,17 +87,21 @@ class ApiController extends Dinkly
 		$user->setUsername($username);
 		$user->setEmail($email);
 		$user->setFirstName($firstname);
+		$user->setHash(hash("md5",$email));
+		$user->setIsLocked(1);
 		$user->setLastName($lastname);
 		$user->setTitle($title);
 		$user->save();
 
+		// $url_verify =
+
 		$postmark = new Postmark("7ce7bdcd-4689-45dd-86d9-4bf155873185","scottconnor@bluehousegroup.com","scottconnor@bluehousegroup.com");
 
 		$result = $postmark->to("scottconnor@bluehousegroup.com")
-			->subject("Email Subject")
-			->plain_message("This is a plain text message.")
+			->subject("User Verification")
+			->plain_message("This is a plain text message.");
 			// ->attachment('File.pdf', $file_as_string, 'application/pdf')
-			->send();
+			// ->send();
 		
 		// if($result === true)
 		// 	error_log("message sent");

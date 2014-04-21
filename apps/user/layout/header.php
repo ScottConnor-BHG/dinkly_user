@@ -99,7 +99,7 @@ $('body').on('click','.sign-up',function(){
   var firstname= document.getElementById('firstname').value;
   var lastname= document.getElementById('lastname').value;
   var title= document.getElementById('title').value;
-  console.log(username + firstname +lastname+title);
+  // console.log(username + firstname +lastname+title);
  //ajax code goes here to make database changes
     $.ajax({
           type: "POST",

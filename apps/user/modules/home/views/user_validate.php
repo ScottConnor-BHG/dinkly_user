@@ -3,7 +3,10 @@
     <div class="jumbotron">
       <div class="container">
         <h1>
-          Congratulations
+          Congratulations 
+          <?php 
+          echo $user->getUsername();
+          ?>
         </h1>
         <p>
           You have been signed up for 

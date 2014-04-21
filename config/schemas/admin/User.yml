@@ -9,5 +9,7 @@ registry:
   - first_name: { type: varchar, length: 24, allow_null: true }
   - last_name: { type: varchar, length: 24, allow_null: true }
   - title: { type: varchar, length: 1024, allow_null: true }
+  - hash: { type: varchar, length: 1024, allow_null: false }
   - last_login_at: { type: datetime, allow_null: true }
   - login_count: { type: int, allow_null: false }
+  - is_locked: { type: int, allow_null: false}
