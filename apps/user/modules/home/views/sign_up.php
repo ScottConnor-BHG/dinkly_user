@@ -5,9 +5,12 @@
           </div>
           <div class="col-md-4">
             <div id="form_sub_container1" style="display: block;">
-                    <form  class="form"  >
+                    <form  class="form" >
                       <div class="form-group" >
                        <input name="username" id="username" type="text" placeholder="Username"  class="form-control" >
+                      </div>
+                      <div class="form-group" >
+                       <input name="email" id="email" type="email" placeholder="Email"  class="form-control" >
                       </div>
                       <div class="form-group">
                         <input name="password" id="password" type="password" placeholder="Password" class="form-control" >
@@ -25,7 +28,7 @@
                        <input name="title" id ="title" type="text" placeholder="Occupation"  class="form-control">
                       </div>
                       <div class="form-group">
-                        <button class="sign-up btn pull-right" id="sign-up">
+                        <button class="sign-up btn pull-right" id="sign-up" >
                           Sign Up!
                         </button>
                       </div>

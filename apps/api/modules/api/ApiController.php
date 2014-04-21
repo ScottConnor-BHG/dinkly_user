@@ -77,6 +77,7 @@ class ApiController extends Dinkly
 	{
 		$user = new User();
 		$username =$_POST['username'];
+		$email =$_POST['email'];
 		$firstname =$_POST['firstname'];
 		$lastname =$_POST['lastname'];
 		$title =$_POST['title'];
@@ -84,6 +85,7 @@ class ApiController extends Dinkly
 	  //error_log($password);
 		$user->setPassword($password);
 		$user->setUsername($username);
+		$user->setEmail($email);
 		$user->setFirstName($firstname);
 		$user->setLastName($lastname);
 		$user->setTitle($title);

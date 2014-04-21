@@ -22,7 +22,7 @@
       </script>
     <![endif]-->
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
@@ -94,6 +94,7 @@ $('body').on('click','.save_user_info',function(){
 //save user information
 $('body').on('click','.sign-up',function(){
   var username= document.getElementById('username').value;
+  var email= document.getElementById('email').value;
   var password = document.getElementById('password').value;
   var firstname= document.getElementById('firstname').value;
   var lastname= document.getElementById('lastname').value;
@@ -103,10 +104,11 @@ $('body').on('click','.sign-up',function(){
     $.ajax({
           type: "POST",
           url: "/api/api/sign_up_user/",
-          data: {username: username,password: password,firstname:firstname,lastname:lastname,title:title},
+          data: {username: username,email:email,password: password,firstname:firstname,lastname:lastname,title:title},
     success: function(msg) {        
           console.log("success");
           //showMessage(message, 'success');
+          window.location.href ="../";
         },
         error: function(error){
           var message = "There was an error processing your request. Please try again later.";

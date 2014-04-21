@@ -35,6 +35,7 @@
     <tr>
       <th>ID</th>
       <th>Username</th>
+      <th>Email</th>
       <th>Created</th>
       <th>Last Login</th>
       <th>Login Count</th>
@@ -46,6 +47,7 @@
     <tr class="<?php echo ($pos % 2 == 0) ? 'odd' : 'even'; ?>">
       <td><?php echo $user->getId(); ?></td>
       <td><?php echo $user->getUsername(); ?></td>
+      <td><?php echo $user->getEmail(); ?></td>
       <td><?php echo $user->getCreatedAt(); ?></td>
       <td><?php echo $user->getLastLoginAt(); ?></td>
       <td><?php echo $user->getLoginCount(); ?></td>
