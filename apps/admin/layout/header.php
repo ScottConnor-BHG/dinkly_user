@@ -99,7 +99,7 @@ $('body').on('click','.sign-up',function(){
     success: function(msg) {        
           console.log("success");
           //showMessage(message, 'success');
-          window.location.href ="/";
+          
         },
         error: function(error){
           var message = "There was an error processing your request. Please try again later.";
