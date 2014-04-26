@@ -28,4 +28,9 @@ class UserController extends AdminController
 	
 		return true;
 	}
+		public function loadUpload()
+	{
+
+		return true;
+	}
 }
