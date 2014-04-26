@@ -17,6 +17,11 @@ $temp = explode(".", $_FILES["file"]["name"]);
 $extension = end($temp);
 $temp = explode("/",$_FILES["file"]["tmp_name"]);
 $hash = end($temp);
+$file_name = $_FILES["file"]["name"];
+
+
+
+
 
 if ((($_FILES["file"]["type"] == "image/gif")
 || ($_FILES["file"]["type"] == "image/jpeg")
@@ -44,7 +49,8 @@ if ((($_FILES["file"]["type"] == "image/gif")
 
 echo '<script type="text/javascript">'
 ,'var hash ='.json_encode($hash).';'
-   , 'saveImage(hash);'
+,'var title ='.json_encode($file_name).';'
+   , 'saveImage(hash,title);'
    , '</script>';
     
     }

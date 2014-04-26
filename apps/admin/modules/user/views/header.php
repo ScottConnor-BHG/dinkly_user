@@ -3,14 +3,14 @@
 <script type="text/javascript" src="/js/dataTables.bootstrap.js"></script>
 <script type="text/javascript">
     //save Image url to database
-    function saveImage(hash){
-              console.log(hash);
+    function saveImage(hash,title){
+              //console.log(hash);
               $.ajax({
               type: "POST",
               url: "/api/api/save_image/",
-              data: {hash: hash},
+              data: {hash: hash,title:title},
         success: function(msg) {        
-              console.log("success");
+              //console.log("success");
             },
             error: function(error){
               var message = "There was an error processing your request. Please try again later.";
@@ -31,6 +31,15 @@ $(document).ready(function() {
 	});
 	/* User Table initialisation */
 	$('#user-list').dataTable({
+    "sDom": "<'row'<'col-6'><'col-6'l><'pull-right' f>r>t<'row'<'col-6'i><'col-6'<'pull-right' p>>>",
+    "sPaginationType": "full_numbers",
+    "oLanguage": {
+        "sLengthMenu": "Show _MENU_ Rows",
+                "sSearch": ""
+    }
+});
+    /* Image Table initialisation */
+    $('#image-list').dataTable({
     "sDom": "<'row'<'col-6'><'col-6'l><'pull-right' f>r>t<'row'<'col-6'i><'col-6'<'pull-right' p>>>",
     "sPaginationType": "full_numbers",
     "oLanguage": {

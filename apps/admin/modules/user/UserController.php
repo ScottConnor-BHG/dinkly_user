@@ -25,6 +25,8 @@ class UserController extends AdminController
 	}
 		public function loadUploadFile()
 	{
+		$this->images= ImageCollection::getAll();
+
 	
 		return true;
 	}

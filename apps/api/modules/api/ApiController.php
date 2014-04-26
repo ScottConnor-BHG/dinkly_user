@@ -77,7 +77,9 @@ class ApiController extends Dinkly
 	{
 		$img = new Image();
 		$hash =$_POST['hash'];
+		$title =$_POST['title'];
 		$img->setHash($hash);
+		$img->setTitle($title);
 		$img->setCreatedAt(date("Y-m-d H:i:s"));
 		$img->setUpdatedAt(date("Y-m-d H:i:s"));
 		$img->save();
