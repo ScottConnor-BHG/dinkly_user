@@ -1,0 +1,6 @@
+table_name: image
+registry:
+  - id
+  - created_at
+  - updated_at
+  - hash: { type: varchar, length: 1024, allow_null: false }

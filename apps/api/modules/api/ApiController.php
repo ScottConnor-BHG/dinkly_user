@@ -73,6 +73,15 @@ class ApiController extends Dinkly
 
 		return false;
 	}
+		public function loadSaveImage()
+	{
+		$img = new Image();
+		$hash =$_POST['hash'];
+		$img->setHash($hash);
+		$img->setCreatedAt(date("Y-m-d H:i:s"));
+		$img->save();
+		return false;
+	}
 		public function loadSignUpUser()
 	{
 		$user = new User();

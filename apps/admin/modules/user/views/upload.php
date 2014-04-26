@@ -41,6 +41,11 @@ if ((($_FILES["file"]["type"] == "image/gif")
       $url="/img/files/" . $hash;
       echo "Stored in: " . $url."<br>" ;
       echo '<img src="' . $url . '">';
+
+echo '<script type="text/javascript">'
+,'var hash ='.json_encode($hash).';'
+   , 'saveImage(hash);'
+   , '</script>';
     
     }
   }
