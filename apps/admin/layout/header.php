@@ -45,23 +45,6 @@
       //username.disabled=false;
       
     }
-    //save Image url to database
-    function saveImage(hash){
-              console.log(hash);
-              $.ajax({
-              type: "POST",
-              url: "/api/api/save_image/",
-              data: {hash: hash},
-        success: function(msg) {        
-              console.log("success");
-            },
-            error: function(error){
-              var message = "There was an error processing your request. Please try again later.";
-              //showMessage(message, "error");
-            }
-        });
-
-    }
     //add user url redirect
     function addUser(){
 

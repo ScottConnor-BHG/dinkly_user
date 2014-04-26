@@ -85,6 +85,14 @@ class ApiController extends Dinkly
 		$img->save();
 		return false;
 	}
+	public function loadDeleteImage()
+	{
+		$img = new Image();
+		$hash =$_POST['hash'];
+		$img->initWithHash($hash);
+		$img->delete();
+		return false;
+	}
 		public function loadSignUpUser()
 	{
 		$user = new User();

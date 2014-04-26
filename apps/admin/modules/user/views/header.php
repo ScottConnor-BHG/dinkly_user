@@ -39,7 +39,7 @@ $(document).ready(function() {
     }
 });
     /* Image Table initialisation */
-    $('#image-list').dataTable({
+    image_list = $('#image-list').dataTable({
     "sDom": "<'row'<'col-6'><'col-6'l><'pull-right' f>r>t<'row'<'col-6'i><'col-6'<'pull-right' p>>>",
     "sPaginationType": "full_numbers",
     "oLanguage": {
@@ -109,6 +109,31 @@ $(function(){
         var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_info]');
         length_sel.css('margin-top', '18px')
     });
+//delete image
+$('body').on('click','.delete-image',function(){
+    var hash = $(this).data('hash');
+    var row = $(this).closest("tr").get(0);
+    var deleteImage = confirm("Are you sure you would like to delete this Image?");
+    if(deleteImage){
+     //ajax code goes here to make database changes
+        $.ajax({
+              type: "POST",
+              url: "/api/api/delete_image/",
+              data: {hash: hash},
+        success: function(msg) {        
+              //console.log("success");
+              image_list.fnDeleteRow(image_list.fnGetPosition(row));
+              //showMessage(message, 'success');
+              
+            },
+            error: function(error){
+              var message = "There was an error processing your request. Please try again later.";
+              //showMessage(message, "error");
+            }
+        });
+    }
+  
+});
 
 
 });
