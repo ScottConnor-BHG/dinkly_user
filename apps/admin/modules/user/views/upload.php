@@ -1,5 +1,5 @@
 <?php
-ini_set('upload_tmp_dir','/tmp');
+
 
 error_log($_FILES["file"]["name"]." ". $_FILES["file"]["tmp_name"]);
 
