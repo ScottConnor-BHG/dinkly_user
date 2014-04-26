@@ -1,7 +1,7 @@
 <?php
 
 
-error_log($_FILES["file"]["name"]." ". $_FILES["file"]["tmp_name"]);
+//error_log($_FILES["file"]["name"]." ". $_FILES["file"]["tmp_name"]);
 
 if ($_FILES["file"]["error"] > 0) {
   echo "Error: " . $_FILES["file"]["error"] . "<br>";
