@@ -140,6 +140,11 @@ $(function(){
         }
       
     });
+    //view image
+    $('body').on('click','.view-image',function(){
+        var hash = $(this).data('hash');
+
+    });
 
 
 });
