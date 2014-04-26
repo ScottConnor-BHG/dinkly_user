@@ -32,7 +32,7 @@ enctype="multipart/form-data" >
       <td><?php echo $image->getUpdatedAt(); ?></td>
       <td><?php echo $image->getTitle(); ?></td>
       <td><?php echo $image->getHash(); ?></td>
-      <td></td>
+      <td><a class="delete-image"><span class="glyphicon glyphicon-remove"></span></a></td>
     </tr> 
     <?php endforeach; ?>
   </tbody>
