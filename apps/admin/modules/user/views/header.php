@@ -116,6 +116,7 @@ $(function(){
         var hash = $(this).data('hash');
         var row = $(this).closest("tr").get(0);
         var file_path ="/img/files/"+hash;
+        console.log(file_path);
         var deleteImage = confirm("Are you sure you would like to delete this Image?");
         if(deleteImage){
             
@@ -140,12 +141,5 @@ $(function(){
         }
       
     });
-    //view image
-    $('body').on('click','.view-image',function(){
-        var hash = $(this).data('hash');
-
-    });
-
-
 });
 </script>

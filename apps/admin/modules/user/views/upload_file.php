@@ -25,18 +25,20 @@ enctype="multipart/form-data" >
     </tr>
   </thead>
   <tbody>
-    <?php foreach($images as $pos => $image): ?>
-    <tr class="<?php echo ($pos % 2 == 0) ? 'odd' : 'even'; ?>">
-      <td><?php echo $image->getId(); ?></td>
-      <td><?php echo $image->getCreatedAt(); ?></td>
-      <td><?php echo $image->getUpdatedAt(); ?></td>
-      <td><?php echo $image->getTitle(); ?></td>
-      <td><?php echo $image->getHash(); ?></td>
-      <td><a class="delete-image" data-hash="<?php echo $image->getHash(); ?>"><span class="glyphicon glyphicon-remove"></span></a>
-          <a class="view-image" data-hash="<?php echo $image->getHash(); ?>"data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open"></span></a>
-      </td>
-    </tr> 
-    <?php endforeach; ?>
+    <?php if(isset($images)): ?>
+      <?php foreach($images as $pos => $image): ?>
+      <tr class="<?php echo ($pos % 2 == 0) ? 'odd' : 'even'; ?>">
+        <td><?php echo $image->getId(); ?></td>
+        <td><?php echo $image->getCreatedAt(); ?></td>
+        <td><?php echo $image->getUpdatedAt(); ?></td>
+        <td><?php echo $image->getTitle(); ?></td>
+        <td><?php echo $image->getHash(); ?></td>
+        <td><a class="delete-image" data-hash="<?php echo $image->getHash(); ?>"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="view-image" data-hash="<?php echo $image->getHash(); ?>"data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open"></span></a>
+        </td>
+      </tr> 
+      <?php endforeach; ?>
+    <?php endif; ?>
   </tbody>
 </table>
 </div>
