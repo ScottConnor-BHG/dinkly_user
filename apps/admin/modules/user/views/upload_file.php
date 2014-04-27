@@ -34,7 +34,7 @@ enctype="multipart/form-data" >
         <td><?php echo $image->getTitle(); ?></td>
         <td><?php echo $image->getHash(); ?></td>
         <td><a class="delete-image" data-hash="<?php echo $image->getHash(); ?>"><span class="glyphicon glyphicon-remove"></span></a>
-            <a class="view-image" data-hash="<?php echo $image->getHash(); ?>"data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open"></span></a>
+            <a class="view-image" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>"data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open"></span></a>
         </td>
       </tr> 
       <?php endforeach; ?>
@@ -50,10 +50,10 @@ enctype="multipart/form-data" >
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel"><?php echo $image->getTitle();?></h4>
+        <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
       <div class="modal-body">
-        <img src="<?php echo "/img/files/".$image->getHash(); ?>">
+        <img id="myModalImage" >
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
