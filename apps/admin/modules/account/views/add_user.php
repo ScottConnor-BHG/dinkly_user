@@ -1,6 +1,9 @@
-<div class="hero-unit" style="min-width:225px;max-width:300px;margin-left:auto;margin-right:auto;">
+<div class="hero-unit" style="margin-left:auto;margin-right:auto;">
   <div>
         <div class="row">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
             <div id="form_sub_container1" style="display: block;">
                     <form  class="form"  >
                       <div class="form-group" >
@@ -30,7 +33,7 @@
                         </button>
                       </div>
                     </form>
-            </div>
+            
         </div>
   </div>
 </div>
