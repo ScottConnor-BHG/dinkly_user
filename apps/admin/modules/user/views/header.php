@@ -144,7 +144,7 @@ $(function(){
     $('body').on('click', '.view-image', function () {
          var title = $(this).data('title');
          var hash = $(this).data('hash');
-         var src = "/img/files/"+hash;
+         var src = "/img/files/"+title;
          $(".modal-header #myModalLabel").html(title);
          $(".modal-body #myModalImage").attr("src", src);
          
@@ -156,9 +156,10 @@ $(function(){
     //delete image
     $('body').on('click','.delete-image',function(){
         var hash = $(this).data('hash');
+        var title = $(this).data('title');
         var row = $(this).closest("tr").get(0);
-        var file_path ="img/files/"+hash;
-        console.log(file_path);
+        var file_path ="img/files/"+title;
+        //console.log(file_path);
         var deleteImage = confirm("Are you sure you would like to delete this Image?");
         if(deleteImage){
             

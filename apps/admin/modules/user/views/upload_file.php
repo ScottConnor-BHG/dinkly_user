@@ -33,7 +33,7 @@ enctype="multipart/form-data" >
         <td><?php echo $image->getUpdatedAt(); ?></td>
         <td><?php echo $image->getTitle(); ?></td>
         <td><?php echo $image->getHash(); ?></td>
-        <td><a class="delete-image" data-hash="<?php echo $image->getHash(); ?>"><span class="glyphicon glyphicon-remove"></span></a>
+        <td><a class="delete-image" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>"><span class="glyphicon glyphicon-remove"></span></a>
             <a class="view-image" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>"data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open"></span></a>
         </td>
       </tr> 
