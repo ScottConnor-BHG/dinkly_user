@@ -33,8 +33,10 @@ enctype="multipart/form-data" >
         <td><?php echo $image->getUpdatedAt(); ?></td>
         <td><?php echo $image->getTitle(); ?></td>
         <td><?php echo $image->getHash(); ?></td>
-        <td><a class="delete-image" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>"><span class="glyphicon glyphicon-remove"></span></a>
+        <td>
             <a class="view-image" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>"data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open"></span></a>
+            <a class="image-comments" href="/admin/user/image_comments/id/<?php echo $image->getId();?>" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>"><span class="glyphicon glyphicon-comment"></span></a>
+            <a class="delete-image" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>"><span class="glyphicon glyphicon-remove"></span></a>
         </td>
       </tr> 
       <?php endforeach; ?>

@@ -1,0 +1,6 @@
+table_name: image_comment
+registry:
+  - id
+  - image_id: { type: int, length: 255, allow_null: false }
+  - user_id: { type: int, length: 255, allow_null: false }
+  - text: { type: varchar, length: 1024, allow_null: false }
