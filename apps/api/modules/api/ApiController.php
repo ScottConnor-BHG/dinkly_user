@@ -98,6 +98,13 @@ class ApiController extends Dinkly
 		$img->delete();
 		return false;
 	}
+	public function loadDeleteComment()
+	{
+		$comment = new ImageComment();
+		$comment->init($_POST['id']);
+		$comment->delete();
+		return false;
+	}
 		public function loadSignUpUser()
 	{
 		$user = new User();

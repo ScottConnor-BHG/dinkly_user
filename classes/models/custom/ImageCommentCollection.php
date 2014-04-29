@@ -4,7 +4,7 @@ class ImageCommentCollection extends DinklyDataCollection
 {
 	public static function getAllById($id)
 	{
-		 $db = self::fetchDB(); 
+		$db = self::fetchDB(); 
 		$Select = "SELECT * FROM image_comment WHERE image_id = :id";
 		$stmt = $db->prepare($Select);
 		$stmt->bindParam(':id', $id);

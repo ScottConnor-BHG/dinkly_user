@@ -39,15 +39,104 @@ $(document).ready(function() {
                 "sSearch": ""
     }
 });
-    /* Image Table initialisation */
-    image_list = $('#image-list').dataTable({
-    "sDom": "<'row'<'col-6'><'col-6'l><'pull-right' f>r>t<'row'<'col-6'i><'col-6'<'pull-right' p>>>",
-    "sPaginationType": "full_numbers",
-    "oLanguage": {
-        "sLengthMenu": "Show _MENU_ Rows",
-                "sSearch": ""
-    }
+/* Image Table initialisation */
+image_list = $('#image-list').dataTable({
+"sDom": "<'row'<'col-6'><'col-6'l><'pull-right' f>r>t<'row'<'col-6'i><'col-6'<'pull-right' p>>>",
+"sPaginationType": "full_numbers",
+"oLanguage": {
+    "sLengthMenu": "Show _MENU_ Rows",
+            "sSearch": ""
+}
 });
+    /* Image Table initialisation */
+comment_list = $('#comment-list').dataTable({
+"sDom": "<'row'<'col-6'><'col-6'l><'pull-right' f>r>t<'row'<'col-6'i><'col-6'<'pull-right' p>>>",
+"sPaginationType": "full_numbers",
+"oLanguage": {
+    "sLengthMenu": "Show _MENU_ Rows",
+            "sSearch": ""
+}
+});
+
+    //view image in modal and pass in data
+    $('body').on('click', '.view-image', function () {
+         var title = $(this).data('title');
+         var hash = $(this).data('hash');
+         var src = "/img/files/"+title;
+         $(".modal-header #myModalLabel").html(title);
+         $(".modal-body #myModalImage").attr("src", src);
+         
+         // As pointed out in comments, 
+         // it is superfluous to have to manually call the modal.
+         // $('#addBookDialog').modal('show');
+    });
+
+    //delete image
+    $('body').on('click','.delete-image',function(){
+        var hash = $(this).data('hash');
+        var title = $(this).data('title');
+        var row = $(this).closest("tr").get(0);
+        var file_path ="img/files/"+title;
+        //console.log(file_path);
+        var deleteImage = confirm("Are you sure you would like to delete this Image?");
+        if(deleteImage){
+            
+            
+         //ajax code goes here to make database changes
+            $.ajax({
+                  type: "POST",
+                  url: "/api/api/delete_image/",
+                  data: {hash: hash,file_path:file_path},
+            success: function(msg) {        
+                  //console.log("success");
+
+                  image_list.fnDeleteRow(image_list.fnGetPosition(row));
+                  //showMessage(message, 'success');
+                  
+                },
+                error: function(error){
+                  var message = "There was an error processing your request. Please try again later.";
+                  //showMessage(message, "error");
+                }
+            });
+        }
+      
+    });
+    //delete comment from an image
+    $('body').on('click','.delete-comment',function(){
+        var id = $(this).data('id');
+        var row = $(this).closest("tr").get(0);
+        //console.log(file_path);
+        var deleteComment = confirm("Are you sure you would like to delete this Comment?");
+        if(deleteComment){
+            
+            
+         //ajax code goes here to make database changes
+            $.ajax({
+                  type: "POST",
+                  url: "/api/api/delete_comment/",
+                  data: {id:id},
+            success: function(msg) {        
+                  //console.log("success");
+
+                  comment_list.fnDeleteRow(comment_list.fnGetPosition(row));
+                  //showMessage(message, 'success');
+                  
+                },
+                error: function(error){
+                  var message = "There was an error processing your request. Please try again later.";
+                  //showMessage(message, "error");
+                }
+            });
+        }
+      
+    });
+
+
+
+
+
+
 });
 $(function(){
     $('#admin-user-list').each(function(){
@@ -140,49 +229,36 @@ $(function(){
         var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_info]');
         length_sel.css('margin-top', '18px')
     });
-    //view image in modal and pass in data
-    $('body').on('click', '.view-image', function () {
-         var title = $(this).data('title');
-         var hash = $(this).data('hash');
-         var src = "/img/files/"+title;
-         $(".modal-header #myModalLabel").html(title);
-         $(".modal-body #myModalImage").attr("src", src);
-         
-         // As pointed out in comments, 
-         // it is superfluous to have to manually call the modal.
-         // $('#addBookDialog').modal('show');
-    });
 
-    //delete image
-    $('body').on('click','.delete-image',function(){
-        var hash = $(this).data('hash');
-        var title = $(this).data('title');
-        var row = $(this).closest("tr").get(0);
-        var file_path ="img/files/"+title;
-        //console.log(file_path);
-        var deleteImage = confirm("Are you sure you would like to delete this Image?");
-        if(deleteImage){
-            
-            
-         //ajax code goes here to make database changes
-            $.ajax({
-                  type: "POST",
-                  url: "/api/api/delete_image/",
-                  data: {hash: hash,file_path:file_path},
-            success: function(msg) {        
-                  //console.log("success");
+});
+$(function(){
+    $('#comment-list').each(function(){
+        var datatable = $(this);
+        // SEARCH - Add the placeholder for Search and Turn this into in-line formcontrol
+        var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
+        search_input.attr('placeholder', 'Search')
+        search_input.addClass('form-control input-small')
+        search_input.css('width', '250px')
 
-                  image_list.fnDeleteRow(image_list.fnGetPosition(row));
-                  //showMessage(message, 'success');
-                  
-                },
-                error: function(error){
-                  var message = "There was an error processing your request. Please try again later.";
-                  //showMessage(message, "error");
-                }
-            });
-        }
-      
+        
+        
+       // search_input.css('position', 'absolute')
+        //search_input.css('right', '100px')
+ 
+        // SEARCH CLEAR - Use an Icon
+        var clear_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] a');
+        clear_input.html('<i class="icon-remove-circle icon-large"></i>')
+        clear_input.css('margin-left', '5px')
+
+ 
+        // LENGTH - Inline-Form control
+        var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
+        length_sel.addClass('form-control input-small')
+        length_sel.css('width', '75px')
+ 
+        // LENGTH - Info adjust location
+        var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_info]');
+        length_sel.css('margin-top', '18px')
     });
 });
 </script>
