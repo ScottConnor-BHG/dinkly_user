@@ -2,16 +2,22 @@
 
 class ImageCommentCollection extends DinklyDataCollection
 {
-	public function getAllByID($id)
+	public static function getAllById($id)
 	{
-		$dbo = self::fetchDB();
-
-		$sql = "select * from image_comment where image_id=".$dbo->quote($id);
-		$result = $dbo->query($sql)->fetchAll();
-		if($result != array())
+		 $db = self::fetchDB(); 
+		$Select = "SELECT * FROM image_comment WHERE image_id = :id";
+		$stmt = $db->prepare($Select);
+		$stmt->bindParam(':id', $id);
+		$stmt->execute();
+		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$comments = array();
+		foreach($results as $result)
 		{
-			$this->hydrate($result, true);
+			$comment = new ImageComment();
+			$comment->hydrate($result, true);
+			$comments[] = $comment;
 		}
+		return $comments;
 	}
 
 }

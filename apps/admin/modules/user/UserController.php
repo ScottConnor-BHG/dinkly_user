@@ -32,7 +32,8 @@ class UserController extends AdminController
 	}
 	public function loadImageComments($parameters)
 	{
-		$this->image_comments= ImageCommentCollection::getAll();
+		
+		$this->image_comments= ImageCommentCollection::getAllById($parameters['id']);
 
 	
 		return true;
