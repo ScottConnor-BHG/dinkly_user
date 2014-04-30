@@ -61,12 +61,11 @@
           $url="/img/files/" . $file_name;
           echo "Stored in: " . $url."<br>" ;
           echo '<img src="' . $url . '">';
-
-    echo '<script type="text/javascript">'
-    ,'var hash ='.json_encode($hash).';'
-    ,'var title ='.json_encode($file_name).';'
-       , 'saveImage(hash,title);'
-       , '</script>';
+          echo '<script type="text/javascript">'
+          ,'var hash ='.json_encode($hash).';'
+          ,'var title ='.json_encode($file_name).';'
+             , 'saveImage(hash,title);'
+             , '</script>';
         
         }
       }

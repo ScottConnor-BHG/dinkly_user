@@ -11,7 +11,14 @@
                 <div class="blog-post">
                   <?php
                   $url="/img/files/" . $image->getTitle();
-                  echo '<img src="' . $url . '"  class="img-responsive" alt="Responsive image">';
+                    $image = new SimpleImage();
+                    // Resize the image to 600px width and the proportional height
+                    $image->resizeToWidth(600);
+                    $image->save($url);
+                    // Output the image to the browser:
+                    $image->output();
+
+                  // echo '<img src="' . $url . '"  class="img-responsive" alt="Responsive image">';
                   echo '<br>';
                   echo '<br>';
                   echo '<br>';
