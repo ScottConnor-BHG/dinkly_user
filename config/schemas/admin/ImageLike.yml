@@ -1,0 +1,5 @@
+table_name: image_like
+registry:
+  - id
+  - image_id: { type: int, length: 255, allow_null: false }
+  - user_id: { type: int, length: 255, allow_null: false }

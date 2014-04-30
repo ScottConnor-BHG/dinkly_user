@@ -105,7 +105,14 @@ class ApiController extends Dinkly
 		$comment->delete();
 		return false;
 	}
-		public function loadSignUpUser()
+	public function loadDeleteLike()
+	{
+		$comment = new ImageLike();
+		$comment->init($_POST['id']);
+		$comment->delete();
+		return false;
+	}
+	public function loadSignUpUser()
 	{
 		$user = new User();
 		$username =$_POST['username'];

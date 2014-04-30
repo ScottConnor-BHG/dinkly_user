@@ -38,6 +38,14 @@ class UserController extends AdminController
 	
 		return true;
 	}
+	public function loadImageLikes($parameters)
+	{
+		
+		$this->image_likes= ImageLikeCollection::getAllByImageId($parameters['id']);
+
+	
+		return true;
+	}
 		public function loadUpload()
 	{
 
