@@ -11,7 +11,7 @@
                 <div class="blog-post">
                   <?php
                   $url="/img/files/" . $image->getTitle();
-                  echo '<img src="' . $url . '">';
+                  echo '<img src="' . $url . '"  class="img-responsive" alt="Responsive image">';
                   echo '<br>';
                   echo '<br>';
                   echo '<br>';
