@@ -4,6 +4,7 @@ class HomeController extends UserController
 {
 	public function loadDefault()
 	{
+		$this->images = ImageCollection::getAll();
 		return true;
 	}
 	public function loadSignUp()

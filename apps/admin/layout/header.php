@@ -141,12 +141,12 @@ $('body').on('click','.sign-up',function(){
                 User List
               </a>
             </li>
-            <?php endif; ?>
             <li>
               <a href="/admin/user/upload_file/">
                 Upload file
               </a>
             </li>
+            <?php endif; ?>
             </ul>
           <div class="nav navbar-nav navbar-right" >
             <?php if(AdminUser::isLoggedIn()): ?>

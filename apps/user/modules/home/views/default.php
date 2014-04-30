@@ -1,17 +1,36 @@
 <div class="jumbotron">
 
-  	<?php if(User::isLoggedIn()): ?>
-  	<h4>
-	  <h4>Logged in as <?php echo AdminUser::getLoggedUsername(); ?></h4>
-  	</h4>
-  	<?php endif; ?>
-    <h1>
-      <?php echo Dinkly::getConfigValue('app_name'); ?>
-    </h1>
-    <p>
-      <?php echo Dinkly::getConfigValue('app_description'); ?>
-      (v<?php echo Dinkly::getConfigValue('dinkly_version', 'global'); ?>)
-    </p>
+      <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+
+
+            <?php if(isset($images)): ?>
+              <?php foreach($images as $pos => $image): ?>
+                <div class="blog-post">
+                  <?php
+                  $url="/img/files/" . $image->getTitle();
+                  echo '<img src="' . $url . '">';
+                  echo '<br>';
+                  echo '<br>';
+                  echo '<br>';
+                  echo '<br>';
+                  ?>
+               </div><!-- /.blog-post -->
+              <?php endforeach; ?>
+            <?php endif; ?>
+
+
+          <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+
+        </div><!-- /.blog-main -->
+        <div class="col-sm-2">
+        </div>
+      </div><!-- /.row -->
 
 
   <div style="height:500px;">
