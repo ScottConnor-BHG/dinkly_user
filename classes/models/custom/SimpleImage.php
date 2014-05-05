@@ -30,14 +30,34 @@ class SimpleImage {
  
 	function load($filename)
 	{
+		$imageTypeArray = array(
+			    0=>'UNKNOWN',
+			    1=>'GIF',
+			    2=>'JPEG',
+			    3=>'PNG',
+			    4=>'SWF',
+			    5=>'PSD',
+			    6=>'BMP',
+			    7=>'TIFF_II',
+			    8=>'TIFF_MM',
+			    9=>'JPC',
+			    10=>'JP2',
+			    11=>'JPX',
+			    12=>'JB2',
+			    13=>'SWC',
+			    14=>'IFF',
+			    15=>'WBMP',
+			    16=>'XBM',
+			    17=>'ICO',
+			    18=>'COUNT'  
+			);
 		$image_info = getimagesize($filename);
-		$this->image_type = $image_info[2];
- 
-		if ($this->image_type == IMAGETYPE_JPEG) {
+		$this->image_type = $imageTypeArray[$image_info[2]];
+		if ( $this->image_type =='JPEG') {
 			$this->image = imagecreatefromjpeg($filename);
-		} elseif ($this->image_type == IMAGETYPE_GIF) {
+		} elseif ($this->image_type =='GIF') {
 			$this->image = imagecreatefromgif($filename);
-		} elseif ($this->image_type == IMAGETYPE_PNG) {
+		} elseif ($this->image_type=='PNG') {
 			$this->image = imagecreatefrompng($filename);
 		} else {
 			throw new Exception("The file you're trying to open is not supported");
@@ -46,11 +66,11 @@ class SimpleImage {
  
 	function save($filename, $image_type=IMAGETYPE_JPEG, $compression=75, $permissions=null)
 	{
-		if ($image_type == IMAGETYPE_JPEG) {
+		if ($this->image_type =='JPEG') {
 			imagejpeg($this->image,$filename,$compression);
-		} elseif ($image_type == IMAGETYPE_GIF) {
+		} elseif ($this->image_type =='GIF') {
 			imagegif($this->image,$filename);         
-		} elseif ($image_type == IMAGETYPE_PNG) {
+		} elseif ($this->image_type == 'PNG') {
 			imagepng($this->image,$filename);
 		}
  
@@ -61,18 +81,17 @@ class SimpleImage {
  
 	function output($image_type=IMAGETYPE_JPEG, $quality = 80)
 	{
-		if ($image_type == IMAGETYPE_JPEG) {
+		if ($this->image_type =='JPEG') {
 			header("Content-type: image/jpeg");
 			imagejpeg($this->image, null, $quality);
-		} elseif ($image_type == IMAGETYPE_GIF) {
+		} elseif ($this->image_type =='GIF') {
 			header("Content-type: image/gif");
 			imagegif($this->image);         
-		} elseif ($image_type == IMAGETYPE_PNG) {
+		} elseif ($this->image_type=='PNG') {
 			header("Content-type: image/png");
 			imagepng($this->image);
 		}
 	}
- 
 	function getWidth()
 	{
 		return imagesx($this->image);

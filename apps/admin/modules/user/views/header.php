@@ -86,6 +86,8 @@ like_list = $('#like-list').dataTable({
         var title = $(this).data('title');
         var row = $(this).closest("tr").get(0);
         var file_path ="img/files/"+title;
+        var file_path_resize ="img/files/thumbnails/"+title;
+
         //console.log(file_path);
         var deleteImage = confirm("Are you sure you would like to delete this Image?");
         if(deleteImage){
@@ -95,7 +97,7 @@ like_list = $('#like-list').dataTable({
             $.ajax({
                   type: "POST",
                   url: "/api/api/delete_image/",
-                  data: {hash: hash,file_path:file_path},
+                  data: {hash: hash,file_path:file_path,file_path_resize:file_path_resize},
             success: function(msg) {        
                   //console.log("success");
 

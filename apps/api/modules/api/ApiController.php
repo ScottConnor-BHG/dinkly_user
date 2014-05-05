@@ -90,9 +90,14 @@ class ApiController extends Dinkly
 		$img = new Image();
 		$hash =$_POST['hash'];
 		$file_path =$_POST['file_path'];
+		$file_path_resize=$_POST['file_path_resize'];
 	 if(is_file($file_path))
  		{
 			unlink($file_path);
+		}
+	 if(is_file($file_path_resize))
+ 		{
+			unlink($file_path_resize);
 		}
 		$img->initWithHash($hash);
 		$img->delete();

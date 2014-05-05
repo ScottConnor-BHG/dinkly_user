@@ -36,7 +36,7 @@
 
     $_FILES["file"]["name"]= $file_name;
 
-    error_log($file_name);
+    //error_log($file_name);
 
     if ((($_FILES["file"]["type"] == "image/gif")
     || ($_FILES["file"]["type"] == "image/jpeg")
@@ -66,6 +66,12 @@
           ,'var title ='.json_encode($file_name).';'
              , 'saveImage(hash,title);'
              , '</script>';
+             // Load the original image
+          $image = new SimpleImage('img/files/'.$file_name);
+           
+          // Resize the image to 600px width and the proportional height
+          $image->resizeToWidth(600);
+          $image->save('img/files/thumbnails/'.$file_name);
         
         }
       }

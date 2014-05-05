@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron" style=>
 
       <div class="row">
         <div class="col-sm-2">
@@ -10,15 +10,10 @@
               <?php foreach($images as $pos => $image): ?>
                 <div class="blog-post">
                   <?php
-                  $url="/img/files/" . $image->getTitle();
-                    $image = new SimpleImage();
-                    // Resize the image to 600px width and the proportional height
-                    $image->resizeToWidth(600);
-                    $image->save($url);
-                    // Output the image to the browser:
-                    $image->output();
+                  $url="/img/files/thumbnails/" . $image->getTitle();
 
-                  // echo '<img src="' . $url . '"  class="img-responsive" alt="Responsive image">';
+
+                  echo '<img src="' . $url . '"  class="img-responsive" alt="Responsive image">';
                   echo '<br>';
                   echo '<br>';
                   echo '<br>';
