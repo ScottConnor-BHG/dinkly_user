@@ -5,28 +5,29 @@
         </div>
         <div class="col-sm-8">
 
-            <div class="frame show-image" style="max-width:600px;">
+            
             <?php if(isset($images)): ?>
               <?php foreach($images as $pos => $image): ?>
-                <div class="blog-post">
+                <div class="blog-post show-image" style="max-width:600px;">
                   <?php
                   $url="/img/files/thumbnails/" . $image->getTitle();
 
 
                   echo '<img src="' . $url . '"  class="img-responsive" alt="Responsive image">';
                   
-                  echo '<button type="button" class="btn btn-default btn-sm button-like">
+                  echo '<button type="button" class="btn btn-primary btn-sm button-like" id="' . $image->getId(). '">
                           <span class="glyphicon glyphicon-thumbs-up"></span>
                         </button>';
                   // echo '<a href="#" class="pull-right">Comments</a>';
-                  echo '<button type="button" class="btn btn-default btn-sm button-comment">
+                  echo '<button type="button" class="btn btn-primary btn-sm button-comment" id="' . $image->getId(). '">
                           <span class="glyphicon glyphicon-comment"></span>
                         </button>';
                   ?>
                </div><!-- /.blog-post -->
+               
               <?php endforeach; ?>
             <?php endif; ?>
-          </div>
+          
 
 
 <!--           <ul class="pager">
