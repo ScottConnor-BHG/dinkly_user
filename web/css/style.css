@@ -13,3 +13,34 @@
 body {
   padding-top: 60px;
 }
+div.show-image
+  {
+  position: relative;
+  float:left;
+  margin:5px;
+  }
+
+div.show-image:hover button.button-comment
+  {
+  display: block;
+  }
+
+div.show-image button.button-comment
+  {
+  position:absolute;
+  bottom:0;
+  right:0;
+  display:none;
+  }
+  div.show-image:hover button.button-like
+  {
+  display: block;
+  }
+
+div.show-image button.button-like
+  {
+  position:absolute;
+  bottom:0;
+  left:0;
+  display:none;
+  }
