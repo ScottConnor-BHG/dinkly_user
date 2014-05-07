@@ -14,17 +14,22 @@ class User extends BaseUser
 		return false;
 	}
 
-	public static function setLoggedIn($val, $username)
+	public static function setLoggedIn($val, $username,$id)
 	{
 		$_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_in'] = $val;
 		$_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_username'] = $username;
-		$_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_id'] = $username;
+		$_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_id'] = $id;
 	}
 
 	public static function getLoggedUsername()
 	{
 		if(isset($_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_username'])) { return $_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_username']; }
 		return false;
+	}
+	public static function getLoggedId()
+	{
+		if(isset($_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_id'])) { return $_SESSION['dinkly'][Dinkly::getCurrentAppName()]['logged_id']; }
+		//return false;
 	}
 	public function initWithUsername($username)
 	{
@@ -67,6 +72,7 @@ class User extends BaseUser
 		{
 			$user = new User();
 			$user->init($result[0]['id']);
+			//error_log($result[0]['id']);
 			$hashed_password = $result[0]['password'];
 
 			if(crypt($input_password, $hashed_password) == $hashed_password)
@@ -77,7 +83,7 @@ class User extends BaseUser
 				$user->setLoginCount($count);
 				$user->save();
 
-				self::setLoggedIn(true, $result[0]['username']);
+				self::setLoggedIn(true, $result[0]['username'],$result[0]['id']);
 
 				return true;
 			}

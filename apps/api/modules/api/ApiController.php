@@ -51,6 +51,32 @@ class ApiController extends Dinkly
 /*
 ################### User Ajax endpoints ###########################
 ****/
+	public function loadViewLikes()
+	{
+		$img_like = new ImageLike();
+		$image_id =$_POST['id'];
+		$user_id = $_POST['user_id'];
+		//error_log(User::getLoggedUsername());
+		if($user_id!=0)
+		{
+
+				$img_like->setUserId($user_id);
+				$img_like->setImageId($image_id);
+				$img_like->save();
+			
+		}else
+		{
+				$img_like->setUserId(0);
+				$img_like->setImageId($image_id);
+				$img_like->save();
+		}
+		
+
+		return false;
+	}
+/*
+################### Admin Ajax endpoints ###########################
+****/
 	public function loadSaveUserInfo()
 	{
 		$user = new User();
