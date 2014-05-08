@@ -5,7 +5,13 @@ class ImageCommentCollection extends DinklyDataCollection
 	public static function getAllById($id)
 	{
 		$db = self::fetchDB(); 
-		$Select = "SELECT * FROM image_comment WHERE image_id = :id";
+		$Select = "SELECT
+									*
+								FROM
+									image_comment ic
+								INNER JOIN `user` u ON ic.user_id = u.id
+								WHERE
+									image_id = :id";
 		$stmt = $db->prepare($Select);
 		$stmt->bindParam(':id', $id);
 		$stmt->execute();
@@ -15,7 +21,7 @@ class ImageCommentCollection extends DinklyDataCollection
 		{
 			$comment = new ImageComment();
 			$comment->hydrate($result, true);
-			$comments[] = $comment;
+			$comments[] = array($comment,$result['username']);
 		}
 		return $comments;
 	}

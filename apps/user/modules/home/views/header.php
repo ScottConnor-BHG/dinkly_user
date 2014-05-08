@@ -35,8 +35,10 @@ $('body').on('click','.button-comment',function(){
                   //console.log(id);
                   var comments = data["comments"];
                   comments.forEach(function(entry) {
-                      console.log(entry);
+                      console.log(entry[0]['Text']);
+                      console.log(entry[1]);
                   });
+
                   //console.log();
                   // image_list.fnDeleteRow(image_list.fnGetPosition(row));
                   //showMessage(message, 'success');
