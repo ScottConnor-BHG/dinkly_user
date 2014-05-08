@@ -44,3 +44,9 @@ div.show-image button.button-like
   left:0;
   display:none;
   }
+/******************* comment styles **************************/
+li.comment{
+  border-bottom:1px solid black;
+  list-style: none;
+  padding-top:10px;
+}

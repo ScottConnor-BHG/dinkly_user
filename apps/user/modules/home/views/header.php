@@ -35,6 +35,7 @@ $('body').on('click','.button-comment',function(){
                   //console.log(id);
                   var comments = data["comments"];
                   comments.forEach(function(entry) {
+                    $('.modal-body').append(entry[0]['Text']);
                       console.log(entry[0]['Text']);
                       console.log(entry[1]);
                   });
