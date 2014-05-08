@@ -53,9 +53,11 @@
         <h4 class="modal-title" id="myModalLabel">Image Comments</h4>
       </div>
       <div class="modal-body">
+        <div class="comments">
+        </div>
                     <form  class="form-comment form" method="post" action="" >
                       <div class="form-group" >
-                       <textarea class="form-control" rows="3"></textarea>
+                       <textarea class="form-control" rows="3" placeholder="Add a comment..."></textarea>
                       </div>
                       <div class="form-group">
                         <button class="sign-up btn btn-success pull-right" id="sign-up" >
