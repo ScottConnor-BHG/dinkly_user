@@ -2,7 +2,7 @@
 function addComment(username,comment) {
     var html = '<li class="comment"><button type="button" class="btn btn-default btn-lg" disabled><span class="glyphicon glyphicon-user"></span></button><h3 class="username"> <strong>'+username+'</strong></h3><p class= "comment-body">'+comment+'</p></li>';
     // var html = '<li class="comment"><p>hello world</p><button type="button" class="btn btn-default btn-lg" disabled><span class="glyphicon glyphicon-user"></span></button></li>';
-    $('.modal-body').append(html);
+    $('.modal-body').prepend(html);
     console.log('test comment function');
 }
 $(document).ready(function() {
