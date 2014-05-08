@@ -51,13 +51,13 @@ class ApiController extends Dinkly
 /*
 ################### User Ajax endpoints ###########################
 ****/
-	public function loadViewLikes()
+	public function loadAddLike()
 	{
 		$img_like = new ImageLike();
 		$image_id =$_POST['id'];
 		$user_id = $_POST['user_id'];
 		//error_log(User::getLoggedUsername());
-		if($user_id!=0)
+		if(!empty($user_id))
 		{
 
 				$img_like->setUserId($user_id);
@@ -70,6 +70,24 @@ class ApiController extends Dinkly
 				$img_like->setImageId($image_id);
 				$img_like->save();
 		}
+		
+
+		return false;
+	}
+	public function loadViewComments()
+	{
+
+		$image_id =$_POST['id'];
+		error_log($image_id);
+		$comments = ImageCommentCollection::getAllById($image_id);
+		
+		// foreach ($comments as $c) {
+		// 	$text=$c->getText();
+		// 	error_log($text);
+		// }
+
+		$this->handleResponse(json_encode(array("comments"=>$comments)));
+
 		
 
 		return false;
