@@ -9,6 +9,20 @@ $(document).ready(function() {
 //save user information
 $('body').on('click','.button-like',function(){
   var id = this.id;
+  var reference = "#"+id;
+  // var image_id = this.data("image");
+  // var reference = "";
+  // console.log(image_id);
+  //change class of button to show that is or is not liked
+  if($(reference).hasClass( "btn-default" ))
+  {
+    $(reference ).removeClass("btn-default");
+    $(reference).addClass("btn-success");
+  }else if($(reference).hasClass( "btn-success" ))
+  {
+    $(reference ).removeClass("btn-success");
+    $(reference).addClass("btn-default");
+  }
   var user_id = <?php echo json_encode(User::getLoggedId()); ?>;
   
          //ajax code goes here to make database changes

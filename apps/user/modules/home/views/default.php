@@ -15,7 +15,7 @@
 
                   echo '<img src="' . $url . '"  class="img-responsive" alt="Responsive image">';
                   
-                  echo '<button type="button" class="btn btn-primary btn-sm button-like" id="' . $image->getId(). '" data-toggle="modal" data-target="#myModal">
+                  echo '<button type="button" class="btn btn-default btn-sm button-like" id="' . $image->getId(). '" >
                           <span class="glyphicon glyphicon-thumbs-up"></span>
                         </button>';
                   // echo '<a href="#" class="pull-right">Comments</a>';
