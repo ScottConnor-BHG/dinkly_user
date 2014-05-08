@@ -1,4 +1,10 @@
 <script type="text/javascript">
+function addComment(username,comment) {
+    var html = '<li class="comment"><button type="button" class="btn btn-default btn-lg" disabled><span class="glyphicon glyphicon-user"></span></button><h3 class="username"> <strong>'+username+'</strong></h3><p class= "comment-body">'+comment+'</p></li>';
+    // var html = '<li class="comment"><p>hello world</p><button type="button" class="btn btn-default btn-lg" disabled><span class="glyphicon glyphicon-user"></span></button></li>';
+    $('.modal-body').append(html);
+    console.log('test comment function');
+}
 $(document).ready(function() {
 //save user information
 $('body').on('click','.button-like',function(){
@@ -34,10 +40,9 @@ $('body').on('click','.button-comment',function(){
                   //console.log("success");
                   //console.log(id);
                   var comments = data["comments"];
+                  
                   comments.forEach(function(entry) {
-                    $('.modal-body').append(entry[0]['Text']);
-                      console.log(entry[0]['Text']);
-                      console.log(entry[1]);
+                      addComment(entry[1],entry[0]['Text']);
                   });
 
                   //console.log();
@@ -53,6 +58,9 @@ $('body').on('click','.button-comment',function(){
 
 
   
+});
+$('body').on('click','.clear-modal',function(){
+  $('.modal-body').empty();
 });
 });
 </script>

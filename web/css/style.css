@@ -50,3 +50,7 @@ li.comment{
   list-style: none;
   padding-top:10px;
 }
+/************************* image styling **********************/
+.show-image{
+  padding-top:50px;
+}
