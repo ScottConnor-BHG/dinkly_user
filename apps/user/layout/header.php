@@ -264,7 +264,7 @@ $('body').on('click','.sign-up',function(){
     </div>  --> 
 
     <div class="container">
-     <!--  <img src="/img/logo.png" style="width:100px;" class="fixed-top"></img> -->
+      <img src="/img/logo.png" style="width:100px;" class="fixed-top"></img>
       <?php if(isset($_SESSION['dinkly']['badlogin'])): ?>
       <div class="alert alert-error">Invalid login</div>
       <?php endif; ?>

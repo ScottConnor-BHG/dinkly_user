@@ -9,7 +9,7 @@
             <?php if(isset($images)): ?>
               <?php foreach($images as $pos => $image): ?>
                 <div class="blog-post show-image" style="max-width:600px;">
-                  <h2><?php echo $image->getCaption();?></h2>
+                  <h4 class="pull-right" style="font-weight: lighter;"><?php echo $image->getCaption();?></h4>
                   <?php
                   $url="/img/files/thumbnails/" . $image->getTitle();
 
@@ -51,8 +51,7 @@
 
 
 
-  <div style="height:500px;">
-  </div>
+
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

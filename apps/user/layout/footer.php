@@ -3,7 +3,7 @@
       	
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted"> © Studio Nine</p>
       </div>
     </div>
       </div>
