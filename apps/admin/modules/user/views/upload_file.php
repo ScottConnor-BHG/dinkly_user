@@ -52,11 +52,11 @@ enctype="multipart/form-data" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <button type="button" class="close clear-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
       <div class="modal-body">
-        <img id="myModalImage" >
+        
         <form  name="input" class="form-comment" action=""  method="post"  >
           <div class="form-group" >
            <textarea class="form-control" id="caption-field" rows="3" placeholder="Add a caption"></textarea>
@@ -69,8 +69,7 @@ enctype="multipart/form-data" >
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default clear-modal" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

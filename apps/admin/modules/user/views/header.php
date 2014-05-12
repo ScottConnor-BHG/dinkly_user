@@ -90,7 +90,8 @@ like_list = $('#like-list').dataTable({
          var caption= $(this).data('caption');
          var src = "/img/files/"+title;
          $(".modal-header #myModalLabel").html(caption);
-         $(".modal-body #myModalImage").attr("src", src);
+         var img ='<img src="'+src+'" style="width:300px;" ></img>';
+         $(".modal-body" ).prepend(img);
          $(".add-caption").attr('id',hash);
          
          // As pointed out in comments, 
@@ -201,6 +202,9 @@ $('body').on('click','.add-caption',function(e){
     addCaption(new_caption,image_id);
     
   }
+});
+$('body').on('click','.clear-modal',function(){
+  $('.modal-body').empty();
 });
 
 

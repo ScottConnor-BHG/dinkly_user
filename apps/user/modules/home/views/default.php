@@ -1,4 +1,5 @@
 <div class="container" >
+  <img src="/img/logo.png" style="width:100px;" class="fixed-top"></img>
 
       <div class="row">
         <div class="col-sm-2">
