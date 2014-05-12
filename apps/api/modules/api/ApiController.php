@@ -56,24 +56,9 @@ class ApiController extends Dinkly
 		$img_like = new ImageLike();
 		$image_id =$_POST['id'];
 		$user_id = $_POST['user_id'];
-		//error_log(User::getLoggedUsername());
-		// if(!empty($user_id))
-		// {
-		error_log($user_id);
-
-				$img_like->setUserId($user_id);
-				$img_like->setImageId($image_id);
-				$img_like->save();
-			
-		// }
-		// else
-		// {
-		// 		$img_like->setUserId(0);
-		// 		$img_like->setImageId($image_id);
-		// 		$img_like->save();
-		// }
-		
-
+		$img_like->setUserId($user_id);
+		$img_like->setImageId($image_id);
+		$img_like->save();
 		return false;
 	}
 		public function loadDeleteLike()
@@ -81,28 +66,25 @@ class ApiController extends Dinkly
 		$img_like = new ImageLike();
 		$image_id =$_POST['id'];
 		$user_id = $_POST['user_id'];
-		// //error_log(User::getLoggedUsername());
-		// if(!empty($user_id))
-		// {
-
-				$like_array=$img_like->initByImageIdUserId($image_id,$user_id);
-				if(!empty($like_array))
-				{
-					$like= new ImageLike();
-					$like->init($like_array[0]->getId());
-					$like->delete();
-				}
-
-			
-		// }
-		// else
-		// {
-		// 		$img_like->setUserId(0);
-		// 		$img_like->setImageId($image_id);
-		// 		$img_like->save();
-		// }
-		
-
+		$like_array=$img_like->initByImageIdUserId($image_id,$user_id);
+		if(!empty($like_array))
+		{
+			$like= new ImageLike();
+			$like->init($like_array[0]->getId());
+			$like->delete();
+		}
+		return false;
+	}
+	public function loadAddComment()
+	{
+		$comment = new ImageComment();
+		$image_id =$_POST['id'];
+		$user_id = $_POST['user_id'];
+		$text = $_POST['text'];
+		$comment->setUserId($user_id);
+		$comment->setImageId($image_id);
+		$comment->setText($text);
+		$comment->save();
 		return false;
 	}
 	public function loadViewComments()

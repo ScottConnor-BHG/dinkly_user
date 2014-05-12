@@ -3,7 +3,26 @@ function addComment(username,comment) {
     var html = '<li class="comment"><button type="button" class="btn btn-default btn-lg" disabled><span class="glyphicon glyphicon-user"></span></button><h3 class="username"> <strong>'+username+'</strong></h3><p class= "comment-body">'+comment+'</p></li>';
     // var html = '<li class="comment"><p>hello world</p><button type="button" class="btn btn-default btn-lg" disabled><span class="glyphicon glyphicon-user"></span></button></li>';
     $('.comments').append(html);
-    console.log('test comment function');
+}
+function addCommentFromModal(username,comment,image_id) {
+    var html = '<li class="comment"><button type="button" class="btn btn-default btn-lg" disabled><span class="glyphicon glyphicon-user"></span></button><h3 class="username"> <strong>'+username+'</strong></h3><p class= "comment-body">'+comment+'</p></li>';
+    // var html = '<li class="comment"><p>hello world</p><button type="button" class="btn btn-default btn-lg" disabled><span class="glyphicon glyphicon-user"></span></button></li>';
+    $('.comments').append(html);
+    var user_id = <?php echo json_encode(User::getLoggedId()); ?>;
+
+             //ajax code goes here to make database changes
+            $.ajax({
+                  type: "POST",
+                  url: "/api/api/add_comment/",
+                  data: {id:image_id,user_id:user_id,text:comment},
+            success: function(msg) {        
+                  
+                },
+                error: function(error){
+                  var message = "There was an error processing your request. Please try again later.";
+                  //showMessage(message, "error");
+                }
+            });
 }
 $(document).ready(function() {
 //save user information
@@ -72,6 +91,9 @@ $('body').on('click','.button-comment',function(){
             success: function(data) {        
                   //console.log("success");
                   //console.log(id);
+                  var $newDiv = $('.new-comment');
+                  //set the id
+                  $newDiv.attr("id",id);
                   var comments = data["comments"];
                   
                   comments.forEach(function(entry) {
@@ -94,6 +116,18 @@ $('body').on('click','.button-comment',function(){
 });
 $('body').on('click','.clear-modal',function(){
   $('.comments').empty();
+});
+$('body').on('click','.add-comment',function(e){
+  e.preventDefault();
+  var new_comment = $('#comment-field').val();
+  var image_id= $('.new-comment').attr('id');
+  if(new_comment !="")
+  {
+    var username = <?php echo json_encode(User::getLoggedUsername()); ?>;
+    $('#comment-field').val(''); 
+    addCommentFromModal(username,new_comment,image_id);
+    console.log(new_comment);
+  }
 });
 });
 </script>

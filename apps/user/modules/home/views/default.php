@@ -64,12 +64,12 @@
       <div class="modal-body">
         <div class="comments">
         </div>
-                    <form  class="form-comment form" method="post" action="" >
+                    <form  name="input" class="form-comment" action=""  method="post"  >
                       <div class="form-group" >
-                       <textarea class="form-control" rows="3" placeholder="Add a comment..."></textarea>
+                       <textarea class="form-control" id="comment-field" rows="3" placeholder="Add a comment..."></textarea>
                       </div>
-                      <div class="form-group">
-                        <button class="sign-up btn btn-success pull-right" id="sign-up" >
+                      <div class="form-group new-comment">
+                        <button type="submit" class="btn btn-success pull-right add-comment" >
                           Add Comment
                         </button>
                       </div>
