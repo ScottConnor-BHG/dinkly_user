@@ -57,3 +57,9 @@ li.comment{
 .show-image{
   padding-top:50px;
 }
+.fixed-top
+{
+position:fixed;
+top:60px;
+left:5px;
+}
