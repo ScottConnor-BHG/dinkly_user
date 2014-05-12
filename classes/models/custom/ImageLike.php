@@ -7,12 +7,18 @@ public function initByImageIdUserId($image_id,$user_id)
 		
 		$Select = "SELECT * FROM image_like WHERE image_id = :image_id AND user_id= :user_id";
 		$stmt = $this->db->prepare($Select);
-		$stmt->execute(array(':image_id' => $image_id,':user_id' => $user_id));
-		$results = $stmt->fetchAll(pdo::FETCH_ASSOC);
-		if(!empty($results))
+		$stmt->bindParam(':image_id', $image_id);
+		$stmt->bindParam(':user_id', $user_id);
+		$stmt->execute();
+		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$likes = array();
+		foreach($results as $result)
 		{
-			$this->hydrate($results[0]);
+			$like = new ImageLike();
+			$like->hydrate($result, true);
+			$likes[] = $like;
 		}
+		return $likes;
 	}
 	public function hasLiked($user_id,$image_id)
 	{

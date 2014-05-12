@@ -18,12 +18,7 @@ $('body').on('click','.button-like',function(){
   {
     $(reference ).removeClass("btn-default");
     $(reference).addClass("btn-success");
-  }else if($(reference).hasClass( "btn-success" ))
-  {
-    $(reference ).removeClass("btn-success");
-    $(reference).addClass("btn-default");
-  }
-  var user_id = <?php echo json_encode(User::getLoggedId()); ?>;
+      var user_id = <?php echo json_encode(User::getLoggedId()); ?>;
   
          //ajax code goes here to make database changes
             $.ajax({
@@ -32,7 +27,7 @@ $('body').on('click','.button-like',function(){
                   data: {id:id,user_id:user_id},
             success: function(msg) {        
                   //console.log("success");
-									//console.log(id);
+                  //console.log(id);
                   // image_list.fnDeleteRow(image_list.fnGetPosition(row));
                   //showMessage(message, 'success');
                   
@@ -42,6 +37,30 @@ $('body').on('click','.button-like',function(){
                   //showMessage(message, "error");
                 }
             });
+  }else if($(reference).hasClass( "btn-success" ))
+  {
+    $(reference ).removeClass("btn-success");
+    $(reference).addClass("btn-default");
+    var user_id = <?php echo json_encode(User::getLoggedId()); ?>;
+             //ajax code goes here to make database changes
+            $.ajax({
+                  type: "POST",
+                  url: "/api/api/delete_like/",
+                  data: {id:id,user_id:user_id},
+            success: function(msg) {        
+                  //console.log("success");
+                  //console.log(id);
+                  // image_list.fnDeleteRow(image_list.fnGetPosition(row));
+                  //showMessage(message, 'success');
+                  
+                },
+                error: function(error){
+                  var message = "There was an error processing your request. Please try again later.";
+                  //showMessage(message, "error");
+                }
+            });
+  }
+
 });
 $('body').on('click','.button-comment',function(){
   var id = this.id;

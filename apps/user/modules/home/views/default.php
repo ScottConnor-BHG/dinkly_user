@@ -15,13 +15,22 @@
 
                   echo '<img src="' . $url . '"  class="img-responsive" alt="Responsive image">';
                   
-                  echo '<button type="button" class="btn btn-default btn-sm button-like" id="' . $image->getId(). '" >
-                          <span class="glyphicon glyphicon-thumbs-up"></span>
-                        </button>';
-                  // echo '<a href="#" class="pull-right">Comments</a>';
+
+                      if(in_array($image->getId(), $like_array))
+                      {
+                        echo '<button type="button" class="btn btn-success btn-sm button-like" id="' . $image->getId(). '" >
+                                <span class="glyphicon glyphicon-thumbs-up"></span>
+                              </button>';
+                      }else
+                      {
+                        echo '<button type="button" class="btn btn-default btn-sm button-like" id="' . $image->getId(). '" >
+                                <span class="glyphicon glyphicon-thumbs-up"></span>
+                              </button>';
+                      }
                   echo '<button type="button" class="btn btn-primary btn-sm button-comment" id="' . $image->getId(). '" data-toggle="modal" data-target="#myModal">
-                          <span class="glyphicon glyphicon-comment"></span>
-                        </button>';
+                              <span class="glyphicon glyphicon-comment"></span>
+                            </button>';
+
                   ?>
                </div><!-- /.blog-post -->
               <?php endforeach; ?>

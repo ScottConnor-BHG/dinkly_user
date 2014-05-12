@@ -19,5 +19,22 @@ class ImageLikeCollection extends DinklyDataCollection
 		}
 		return $likes;
 	}
+	public static function getAllByUserId($id)
+	{
+		$db = self::fetchDB(); 
+		$Select = "SELECT * FROM image_like WHERE user_id = :id";
+		$stmt = $db->prepare($Select);
+		$stmt->bindParam(':id', $id);
+		$stmt->execute();
+		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$likes = array();
+		foreach($results as $result)
+		{
+			$like = new ImageLike();
+			$like->hydrate($result, true);
+			$likes[] = $like;
+		}
+		return $likes;
+	}
 }
 
