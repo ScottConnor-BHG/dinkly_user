@@ -61,6 +61,16 @@ class ApiController extends Dinkly
 		$img_like->save();
 		return false;
 	}
+	public function loadAddImageCaption()
+	{
+		$img = new Image();
+		$image_id =$_POST['image_id'];
+		$caption = $_POST['caption'];
+		$img->initWithHash($image_id);
+		$img->setCaption($caption);
+		$img->save();
+		return false;
+	}
 		public function loadDeleteLike()
 	{
 		$img_like = new ImageLike();

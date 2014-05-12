@@ -19,6 +19,22 @@
         });
 
     }
+    function addCaption(caption,image_id){
+              //console.log(hash);
+              $.ajax({
+              type: "POST",
+              url: "/api/api/add_image_caption/",
+              data: {caption: caption,image_id:image_id},
+        success: function(msg) {        
+              //console.log("success");
+            },
+            error: function(error){
+              var message = "There was an error processing your request. Please try again later.";
+              //showMessage(message, "error");
+            }
+        });
+
+    }
 
 $(document).ready(function() {
 	/* Admin User Table initialisation */
@@ -71,9 +87,11 @@ like_list = $('#like-list').dataTable({
     $('body').on('click', '.view-image', function () {
          var title = $(this).data('title');
          var hash = $(this).data('hash');
+         var caption= $(this).data('caption');
          var src = "/img/files/"+title;
-         $(".modal-header #myModalLabel").html(title);
+         $(".modal-header #myModalLabel").html(caption);
          $(".modal-body #myModalImage").attr("src", src);
+         $(".add-caption").attr('id',hash);
          
          // As pointed out in comments, 
          // it is superfluous to have to manually call the modal.
@@ -171,6 +189,19 @@ like_list = $('#like-list').dataTable({
         }
       
     });
+$('body').on('click','.add-caption',function(e){
+  e.preventDefault();
+  var new_caption = $('#caption-field').val();
+  var image_id= $(".add-caption").attr('id');
+  if(new_caption !="")
+  {
+
+    $(".modal-header #myModalLabel").html(new_caption);
+    $('#caption-field').val(''); 
+    addCaption(new_caption,image_id);
+    
+  }
+});
 
 
 

@@ -34,7 +34,7 @@ enctype="multipart/form-data" >
         <td><?php echo $image->getTitle(); ?></td>
         <td><?php echo $image->getHash(); ?></td>
         <td>
-            <a class="view-image" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>"data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open"></span></a>
+            <a class="view-image" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>" data-caption="<?php echo $image->getCaption(); ?>"data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open"></span></a>
             <a class="image-comments" href="/admin/user/image_comments/id/<?php echo $image->getId();?>" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>"><span class="glyphicon glyphicon-comment"></span></a>
             <a class="image-likes" href="/admin/user/image_likes/id/<?php echo $image->getId();?>" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>"><span class="glyphicon glyphicon-thumbs-up"></span></a>
             <a class="delete-image" data-hash="<?php echo $image->getHash(); ?>" data-title="<?php echo $image->getTitle(); ?>"><span class="glyphicon glyphicon-remove"></span></a>
@@ -57,6 +57,16 @@ enctype="multipart/form-data" >
       </div>
       <div class="modal-body">
         <img id="myModalImage" >
+        <form  name="input" class="form-comment" action=""  method="post"  >
+          <div class="form-group" >
+           <textarea class="form-control" id="caption-field" rows="3" placeholder="Add a caption"></textarea>
+          </div>
+          <div class="form-group new-caption">
+            <button type="submit" class="btn btn-success pull-right add-caption" >
+              Add Caption
+            </button>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
