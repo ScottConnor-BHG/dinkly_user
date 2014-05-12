@@ -9,6 +9,7 @@
             <?php if(isset($images)): ?>
               <?php foreach($images as $pos => $image): ?>
                 <div class="blog-post show-image" style="max-width:600px;">
+                  <h2><?php echo $image->getCaption();?></h2>
                   <?php
                   $url="/img/files/thumbnails/" . $image->getTitle();
 

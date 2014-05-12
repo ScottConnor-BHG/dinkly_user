@@ -5,3 +5,4 @@ registry:
   - updated_at
   - title: { type: varchar, length: 1024, allow_null: false }
   - hash: { type: varchar, length: 1024, allow_null: false }
+  - caption: { type: varchar, length: 1024, allow_null: false }

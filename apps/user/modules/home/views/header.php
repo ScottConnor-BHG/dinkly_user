@@ -126,7 +126,7 @@ $('body').on('click','.add-comment',function(e){
     var username = <?php echo json_encode(User::getLoggedUsername()); ?>;
     $('#comment-field').val(''); 
     addCommentFromModal(username,new_comment,image_id);
-    console.log(new_comment);
+    
   }
 });
 });
