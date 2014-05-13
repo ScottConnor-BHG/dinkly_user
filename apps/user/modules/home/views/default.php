@@ -1,6 +1,5 @@
 <div class="container" >
   <img src="/img/logo.png" style="width:100px;" class="fixed-top"></img>
-
       <div class="row">
         <div class="col-sm-2">
         </div>
@@ -66,6 +65,11 @@
         <div class="comments">
         </div>
                     <form  name="input" class="form-comment" action=""  method="post"  >
+                      <div class="alert alert-danger fade in" id="comment-alert" style="display:none;padding-top:5px;">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4>Must Login to make comment!</h4>
+                        <button type="button" class="login">Login</button>
+                      </div>
                       <div class="form-group" >
                        <textarea class="form-control" id="comment-field" rows="3" placeholder="Add a comment..."></textarea>
                       </div>

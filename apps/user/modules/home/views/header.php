@@ -7,9 +7,11 @@ function addComment(username,comment) {
 function addCommentFromModal(username,comment,image_id) {
     var html = '<li class="comment"><button type="button" class="btn btn-default btn-lg" disabled><span class="glyphicon glyphicon-user"></span></button><h3 class="username"> <strong>'+username+'</strong></h3><p class= "comment-body">'+comment+'</p></li>';
     // var html = '<li class="comment"><p>hello world</p><button type="button" class="btn btn-default btn-lg" disabled><span class="glyphicon glyphicon-user"></span></button></li>';
-    $('.comments').append(html);
-    var user_id = <?php echo json_encode(User::getLoggedId()); ?>;
-
+    
+    var user_id = <?php if(User::isLoggedIn()){ echo json_encode(User::getLoggedId());} else{echo json_encode(0);} ?>;
+            if(user_id!=0)
+            {
+              $('.comments').append(html);
              //ajax code goes here to make database changes
             $.ajax({
                   type: "POST",
@@ -23,8 +25,15 @@ function addCommentFromModal(username,comment,image_id) {
                   //showMessage(message, "error");
                 }
             });
+          }else{
+            document.getElementById("comment-alert").style.display = 'block';
+          }
 }
 $(document).ready(function() {
+$('body').on('click','.login',function(){
+   window.location.href="/login";
+   $('.comments').empty();
+});
 //save user information
 $('body').on('click','.button-like',function(){
   var id = this.id;
@@ -37,7 +46,7 @@ $('body').on('click','.button-like',function(){
   {
     $(reference ).removeClass("btn-default");
     $(reference).addClass("btn-success");
-      var user_id = <?php echo json_encode(User::getLoggedId()); ?>;
+      var user_id = <?php if(User::isLoggedIn()){ echo json_encode(User::getLoggedId());} else{echo json_encode(0);} ?>;
   
          //ajax code goes here to make database changes
             $.ajax({

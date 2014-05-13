@@ -56,9 +56,13 @@ class ApiController extends Dinkly
 		$img_like = new ImageLike();
 		$image_id =$_POST['id'];
 		$user_id = $_POST['user_id'];
+		if($user_id!=0)
+		{
 		$img_like->setUserId($user_id);
 		$img_like->setImageId($image_id);
 		$img_like->save();
+		}
+
 		return false;
 	}
 	public function loadAddImageCaption()
@@ -91,10 +95,14 @@ class ApiController extends Dinkly
 		$image_id =$_POST['id'];
 		$user_id = $_POST['user_id'];
 		$text = $_POST['text'];
-		$comment->setUserId($user_id);
-		$comment->setImageId($image_id);
-		$comment->setText($text);
-		$comment->save();
+		if($user_id!=0)
+		{
+			$comment->setUserId($user_id);
+			$comment->setImageId($image_id);
+			$comment->setText($text);
+			$comment->save();
+		}
+
 		return false;
 	}
 	public function loadViewComments()
