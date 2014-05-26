@@ -50,6 +50,7 @@ class AdminUser extends BaseAdminUser
 			$user->init($result[0]['id']);
 			$hashed_password = $result[0]['password'];
 
+
 			if(crypt($input_password, $hashed_password) == $hashed_password)
 			{
 				$count = $user->getLoginCount() + 1;
