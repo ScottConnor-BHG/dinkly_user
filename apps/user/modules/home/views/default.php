@@ -1,7 +1,8 @@
 <div class="container" >
-  <img src="/img/logo.png" style="width:100px;" class="fixed-top"></img>
+  
       <div class="row">
         <div class="col-sm-2">
+        <img src="/img/logo.png" style="width:100px;" class="fixed-top logo"></img>
         </div>
         <div class="col-sm-8">
 
@@ -14,7 +15,7 @@
                   $url="/img/files/thumbnails/" . $image->getTitle();
 
 
-                  echo '<img src="' . $url . '"  class="img-responsive" alt="Responsive image">';
+                  echo '<img src="' . $url . '"  class="img-responsive img-blog" alt="Responsive image">';
                   
 
                       if(in_array($image->getId(), $like_array))

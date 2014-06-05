@@ -47,3 +47,9 @@ h2 { text-align: center; padding: 5px; margin: 10px; background: #fff2b6; color:
    background: url(../images/window.png) no-repeat bottom center;
    text-indent: -9999px;
 }
+.img-blog{
+	z-index: 1;
+}
+.fixed-top .logo{
+	z-index: 2;
+}

@@ -112,4 +112,10 @@ nav li{
 	padding-left: 50px;
 	
 }
+.img-blog{
+	z-index: 1;
+}
+.fixed-top .logo{
+	z-index: 2;
+}
 
